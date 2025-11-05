@@ -53,6 +53,11 @@ jobs:
         run: |
           docker compose -f ./compose/docker-compose.yml up --build -d
 
+      - name: Download wait-for-it.sh
+        run: |
+          curl -o wait-for-it.sh https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh
+          chmod +x wait-for-it.sh
+
       - name: Wait for services
         run: |
           ./scripts/wait-for-it.sh localhost:8000 -t 30
