@@ -1,0 +1,67 @@
+services:
+
+  proxy:
+    container_name: proxy
+    image: registry.digitalocean.com/guitar-tabs-registry/app:proxy-latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/letsencrypt/:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - client
+      - tabs-api
+    networks:
+      - frontend
+      - backend
+    
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  client:
+    container_name: client
+    image: registry.digitalocean.com/guitar-tabs-registry/app:client-latest
+    expose:
+      - "3000"
+    networks:
+      - frontend
+
+  tabs-api:
+    container_name: tabs-api
+    image: registry.digitalocean.com/guitar-tabs-registry/app:tabs-api-latest
+    env_file:
+      - .env.tabs-api
+    expose:
+      - "8000"
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  db:
+    container_name: db
+    image: postgres:18
+    env_file:
+      - .env.db
+    volumes:
+      - /var/lib/postgresql
+    expose:
+      - "5432"
+    networks:
+      - backend
+
+volumes:
+  db_data:
+  letsencrypt:
+  letsencrypt-www:
+
+networks:
+  frontend:
+    internal: false
+  backend:
+    internal: true

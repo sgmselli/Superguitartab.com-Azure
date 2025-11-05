@@ -1,0 +1,28 @@
+---
+- name: pull images from registry and run docker compose
+  hosts: droplet
+  become: yes
+  tasks:
+
+    - name: Ensure project directory exists
+      file:
+        path: /root/guitar-tabs-app
+        state: directory
+        mode: '0755'
+
+    - name: Copy docker-compose file
+      copy:
+        src: ../../../compose/docker-compose.production.yml
+        dest: /root/guitar-tabs-app/docker-compose.yml
+    
+    - name: Log in to DigitalOcean registry
+      community.docker.docker_login:
+        registry_url: registry.digitalocean.com
+        username: doctl
+        password: "{{ lookup('env','DOCKER_REGISTRY_TOKEN') }}"
+
+    - name: Pull and start containers
+      community.docker.docker_compose_v2:
+        project_src: /root/guitar-tabs-app/
+        pull: always
+        state: present

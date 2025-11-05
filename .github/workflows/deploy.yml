@@ -1,0 +1,87 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  whitelist_ssh:
+    name: Whitelist runner IP in firewall
+    runs-on: ubuntu-latest
+
+    outputs:
+      runner_ip: ${{ steps.get_ip.outputs.runner_ip }}
+
+    steps:
+      - name: Get runner IP
+        id: get_ip
+        run: |
+          IP=$(curl -s https://ifconfig.me)
+
+          echo "runner_ip=$IP" >> $GITHUB_OUTPUT
+
+      - name: Whitelist runner IP in DigitalOcean firewall
+        run: |
+          IP=${{ steps.get_ip.outputs.runner_ip }}
+
+          PAYLOAD=$(jq -n --arg ip "$IP" \
+            '[{ "protocol": "tcp", "ports": "22", "sources": { "addresses": [$ip + "/32"] } }]')
+
+          curl -sSL -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.DO_API_TOKEN }}" \
+            -d "{\"inbound_rules\": $PAYLOAD}" \
+            "https://api.digitalocean.com/v2/firewalls/${{ secrets.DO_FIREWALL_ID }}/rules"
+
+          echo "Firewall opened for runner IP"
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: whitelist_ssh
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to DigitalOcean Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: registry.digitalocean.com
+          username: doctl
+          password: ${{ secrets.DO_API_TOKEN }}
+
+      - name: Build proxy Docker image and push to container registry
+        run: |
+          docker buildx build --platform linux/amd64 -t registry.digitalocean.com/guitar-tabs-registry/app:proxy-latest --push ./proxy/production
+
+      - name: Build client Docker image and push to container registry
+        run: |
+          docker buildx build --platform linux/amd64 -t registry.digitalocean.com/guitar-tabs-registry/app:client-latest --push ./client
+
+      - name: Build tabs api Docker image and push to container registry
+        run: |
+          docker buildx build --platform linux/amd64 -t registry.digitalocean.com/guitar-tabs-registry/app:tabs-api-latest --push ./tabs-api
+
+  cleanup_ssh:
+    name: Cleanup Firewall
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [whitelist_ssh, build_test, deploy]
+
+    steps:
+      - name: Remove runner IP from firewall
+        run: |
+          IP=${{ needs.whitelist_ssh.outputs.runner_ip }}
+
+          PAYLOAD=$(jq -n --arg ip "$IP" \
+            '[{ "protocol": "tcp", "ports": "22", "sources": { "addresses": [$ip + "/32"] } }]')
+
+          curl -sSL -X DELETE \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.DO_API_TOKEN }}" \
+            -d "{\"inbound_rules\": $PAYLOAD}" \
+            "https://api.digitalocean.com/v2/firewalls/${{ secrets.DO_FIREWALL_ID }}/rules"
+
+          echo "Firewall closed for runner IP"
