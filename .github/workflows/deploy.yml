@@ -60,7 +60,7 @@ jobs:
 
       - name: Wait for services
         run: |
-          ./scripts/wait-for-it.sh localhost:8000 -t 30
+          ./wait-for-it.sh localhost:8000 -t 30
 
       - name: Install Playwrite
         run: |
