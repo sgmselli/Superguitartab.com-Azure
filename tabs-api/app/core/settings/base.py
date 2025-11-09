@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 from typing import Optional, Any
 import os
 
-from app.schema.environment import AppEnvTypes
+from app.constants.environment import AppEnvTypes
 
 def get_environment_type() -> AppEnvTypes:
     environment = os.getenv("APP_ENV", "DEVELOPMENT").upper()
@@ -24,7 +24,22 @@ class BaseAppSettings(BaseSettings):
     debug: Optional[bool] = None
     allowed_hosts: Optional[list[str]] = None
     allow_origins: Optional[list[str]] = []
-    database_url: Optional[str] = None
+    database_name: Optional[str] = None
+    database_host: Optional[str] = None
+    database_password: Optional[str] = None
+    database_user: Optional[str] = None
+    digital_ocean_bucket_secret_key: Optional[str] = None
+    digital_ocean_bucket_access_key_id: Optional[str] = None
+    digital_ocean_bucket_name: Optional[str] = None
+    digital_ocean_bucket_region_name: Optional[str] = None
+
+    @property
+    def async_driver_database_url(self) -> str:
+        return f"postgresql+asyncpg://{self.database_user}:{self.database_password}@{self.database_host}:5432/{self.database_name}"
+
+    @property
+    def sync_driver_database_url(self) -> str:
+        return f"postgresql+psycopg2://{self.database_user}:{self.database_password}@{self.database_host}:5432/{self.database_name}"
 
     @property
     def fast_api_kwargs(self) -> dict[str, Any]:

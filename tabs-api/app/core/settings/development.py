@@ -6,7 +6,10 @@ class DevelopmentSettings(BaseAppSettings):
     debug: bool = True
     allowed_hosts: list[str] = ["*"]
     allow_origins: list[str] = ["*"]
-    database_url: str = "postgresql://postgres:password@db:5432/guitartabsdb"
+    database_name: str = "guitartabsdb"
+    database_host: str = "db"
+    database_password: str = "password"
+    database_user: str = "postgres"
 
     model_config = SettingsConfigDict(
         env_file='.env',

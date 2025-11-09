@@ -23,4 +23,12 @@
       copy:
         dest: /root/guitar-tabs-app/.env.tabs-api
         content: |
-          DATABASE_URL={{ database_url }}
+          APP_ENV=PRODUCTION
+          DATABASE_NAME={{ database_name }}
+          DATABASE_USER={{ database_user }}
+          DATABASE_PASSWORD={{ database_password }}
+          DATABASE_HOST={{ database_host }}
+          DIGITAL_OCEAN_BUCKET_SECRET_KEY={{ digital_ocean_bucket_secret_key }}
+          DIGITAL_OCEAN_BUCKET_ACCESS_KEY_ID={{ digital_ocean_bucket_access_key_id }}
+          DIGITAL_OCEAN_BUCKET_NAME={{ digital_ocean_bucket_name }}
+          DIGITAL_OCEAN_BUCKET_REGION_NAME={{ digital_ocean_bucket_region_name }}

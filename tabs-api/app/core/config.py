@@ -1,6 +1,6 @@
 from functools import lru_cache
 
-from app.schema.environment import AppEnvTypes
+from app.constants.environment import AppEnvTypes
 from app.core.settings.base import BaseAppSettings
 from app.core.settings.development import DevelopmentSettings
 from app.core.settings.production import ProductionSettings
