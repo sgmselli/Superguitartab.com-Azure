@@ -13,13 +13,7 @@ resource "digitalocean_firewall" "guitar_tabs_fw" {
       source_addresses = slice(var.github_actions_ips, inbound_rule.value * 1000, min((inbound_rule.value + 1) * 1000, length(var.github_actions_ips)))
     }
   }
-
-  inbound_rule {
-    protocol         = "tcp"
-    port_range       = "22"
-    source_addresses = ["86.14.170.85/32"]
-  }
-
+  
   inbound_rule {
     protocol         = "tcp"
     port_range       = "80"
