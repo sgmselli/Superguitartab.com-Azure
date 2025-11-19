@@ -2,22 +2,26 @@ from uuid import uuid4
 
 from fastapi import APIRouter, Depends, HTTPException, Query, UploadFile, File, Form
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select, or_
 
 from app.business_logic.tab_uploader import TabUploader
 from app.constants.genre import Genre
 from app.constants.style import Style
 from app.external_services.s3_client import S3Client
+from app.models.tab import Tab
 from app.services import tab_services
 from app.schema.tab import TabCreate, TabResponse
 from app.db.session import get_session
 from app.constants.http_error_codes import (
+    HTTP_201_CREATED,
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND
 )
+from app.utils.logging import Logger, LogLevel
 
 router = APIRouter()
 
-@router.get("/{tab_id}", response_model=TabResponse)
+@router.get("/tab/{tab_id}", response_model=TabResponse)
 async def get_tab(tab_id: int, session: AsyncSession = Depends(get_session)):
     """
     Route to fetch tab by id and return it.
@@ -30,6 +34,18 @@ async def get_tab(tab_id: int, session: AsyncSession = Depends(get_session)):
     tab_response = TabResponse.model_validate(tab)
     tab_response.file_url = presigned_url
     return tab_response
+
+@router.get("/", response_model=list[TabResponse])
+async def get_tabs(
+    limit: int = Query(10, ge=1, le=100),
+    offset: int = Query(0, ge=0),
+    session: AsyncSession = Depends(get_session),
+):
+    """
+    Route to fetch all tabs of a specific genre with pagination.
+    """
+    tabs = await tab_services.get_tabs(session, limit, offset)
+    return  [TabResponse.model_validate(tab) for tab in tabs]
 
 @router.get("/genre/{genre}", response_model=list[TabResponse])
 async def get_tabs_by_genre(
@@ -45,19 +61,19 @@ async def get_tabs_by_genre(
     return  [TabResponse.model_validate(tab) for tab in tabs]
 
 @router.get("/style/{style}", response_model=list[TabResponse])
-async def get_tabs_by_genre(
+async def get_tabs_by_style(
     style: Style,
     limit: int = Query(10, ge=1, le=50),
     offset: int = Query(0, ge=0),
     session: AsyncSession = Depends(get_session),
 ):
     """
-    Route to fetch all tabs of a specific genre with pagination.
+    Route to fetch all tabs of a specific style with pagination.
     """
     tabs = await tab_services.get_tabs_by_style(style, session, limit, offset)
     return  [TabResponse.model_validate(tab) for tab in tabs]
 
-@router.post("/upload", response_model=TabResponse)
+@router.post("/", response_model=TabResponse)
 async def upload_tab_pdf_and_metadata(
     song_name: str = Form(...),
     artist: str = Form(...),
@@ -89,3 +105,33 @@ async def upload_tab_pdf_and_metadata(
     )
     tab = await tab_services.create_tab(tab_create, session)
     return TabResponse.model_validate(tab)
+
+@router.post("/upload", status_code=HTTP_201_CREATED)
+async def upload_tab_pdf(
+    song_name: str = Form(...),
+    artist: str = Form(...),
+    tab_file: UploadFile = File(...),
+):
+    """
+    Upload a tab file to s3 bucket.
+    """
+    if tab_file.content_type != "application/pdf":
+        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail="Only PDF files are allowed.")
+
+    if not tab_file.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail="Invalid file extension. Only .pdf allowed.")
+
+    tab_uploader = TabUploader(song_name, artist, tab_file)
+    if not await tab_uploader.upload_tab():
+        raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail="Failed to upload tab")
+
+    return {"file_key": tab_uploader.get_s3_tab_file_key()}
+
+
+@router.get("/search", response_model=list[TabResponse])
+async def search_tabs(
+    query: str,
+    session: AsyncSession = Depends(get_session)
+):
+    tabs = await tab_services.search_tabs(query, session)
+    return [TabResponse.model_validate(tab) for tab in tabs]

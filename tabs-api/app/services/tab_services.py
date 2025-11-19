@@ -1,4 +1,4 @@
-from fastapi import File
+from sqlalchemy import or_
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
@@ -23,6 +23,23 @@ async def create_tab(tab_create: TabCreate, session: AsyncSession) -> Tab:
     await session.commit()
     await session.refresh(tab)
     return tab
+
+async def get_tabs(
+    session: AsyncSession,
+    limit: int = 10,
+    offset: int = 0
+) -> list[Tab]:
+    """
+    Fetch tabs filtered by genre, with pagination.
+    """
+    query = (
+        select(Tab)
+        .offset(offset)
+        .limit(limit)
+    )
+    result = await session.execute(query)
+    tabs = result.scalars().all()
+    return tabs
 
 async def get_tabs_by_genre(
     genre: Genre,
@@ -62,5 +79,24 @@ async def get_tabs_by_style(
     tabs = result.scalars().all()
     return tabs
 
-async def download_tab(tab_id: int, session: AsyncSession) -> Tab:
-    pass
+async def search_tabs(
+    query: str,
+    session: AsyncSession
+) -> list[Tab]:
+    """
+    Fetch tabs from a search query that relates to either song_name, album, or artist
+    """
+    db_query = (
+        select(Tab)
+        .where(
+            or_(
+                Tab.song_name.ilike(f"%{query}%"),
+                Tab.artist.ilike(f"%{query}%"),
+                Tab.album.ilike(f"%{query}%")
+            )
+        )
+        .limit(10)
+    )
+    result = await session.execute(db_query)
+    tabs = result.scalars().all()
+    return tabs

@@ -4,11 +4,11 @@ class Genre(str, Enum):
     """
     Constants for the different music genres
     """
-    ROCK = "rock"
-    JAZZ = "jazz"
-    INDIE = "indie"
-    INDIE_ROCK = "indie rock"
-    POP = "pop"
-    METAL = "metal"
+    CLASSICAL = "classical"
+    COUNTRY = "country"
     FOLK = "folk"
-
+    INDIE = "indie"
+    METAL = "metal"
+    POP = "pop"
+    ROCK = "rock"
+    CHRISTMAS = "christmas"

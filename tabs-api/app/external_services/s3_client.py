@@ -55,6 +55,8 @@ class S3Client:
                 self.bucket_name,
                 object_name,
                 ExtraArgs={
+                    "ContentType": "application/pdf",
+                    "ContentDisposition": "inline",
                     "CacheControl": "public, max-age=31536000, immutable",
                 }
             )

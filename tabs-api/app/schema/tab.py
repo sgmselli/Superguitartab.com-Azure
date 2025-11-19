@@ -1,15 +1,20 @@
+from typing import Optional
 from pydantic import BaseModel, field_validator
 
 from app.constants.genre import Genre
 from app.constants.style import Style
-
+from app.constants.difficulty_level import DifficultyLevel
 
 class TabResponse(BaseModel):
     id: int
     song_name: str
-    artist: str
-    genre: Genre
-    style: Style
+    artist: Optional[str]
+    album: Optional[str]
+    genre: Optional[Genre]
+    style: Optional[Style]
+    difficulty: Optional[DifficultyLevel]
+    description: str
+    lyrics_included: bool
     file_name: str
     file_url: str | None = None
 
@@ -18,8 +23,11 @@ class TabResponse(BaseModel):
 class TabCreate(BaseModel):
     song_name: str
     artist: str
+    album: str
     genre: Genre
     style: Style
+    difficulty: DifficultyLevel
+    lyrics_included: bool
     file_key: str
     file_name: str
 
@@ -37,6 +45,14 @@ class TabCreate(BaseModel):
             raise ValueError("Artist name must be at least 1 character")
         if len(v) > 50:
             raise ValueError("Artist name must be less than 50 characters")
+        return v
+
+    @field_validator("album")
+    def validate_album_name(cls, v: str) -> str:
+        if len(v) < 1:
+            raise ValueError("Album name must be at least 1 character")
+        if len(v) > 50:
+            raise ValueError("Album name must be less than 50 characters")
         return v
 
     @field_validator("file_key")
