@@ -1,4 +1,4 @@
-import { Menu, ArrowLeftToLine, User, Music, Guitar, type LucideProps } from "lucide-react";
+import { Menu, ArrowLeftToLine, Music, Guitar, type LucideProps, FileSearchCorner } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface MobileDrawItemProps {
@@ -58,7 +58,8 @@ export const MobileDrawer: React.FC = () => {
                 <div className="menu primary-color-bg min-h-full w-80 p-0">
                     <ul>
                         <MobileDrawCloseItem />
-                        <MobileDrawItem icon={User} name="Sign in" link="/account" closeDrawer={closeDrawer} />
+                        {/* <MobileDrawItem icon={User} name="Sign in" link="/account" closeDrawer={closeDrawer} /> */}
+                        <MobileDrawItem icon={FileSearchCorner} name="Browse songs" link="/browse" closeDrawer={closeDrawer} />
                         <MobileDrawCollapseItem icon={Music} name="Genres" items={genres} closeDrawer={closeDrawer} />
                         <MobileDrawCollapseItem icon={Guitar} name="Styles" items={styles} closeDrawer={closeDrawer} />
                     </ul>

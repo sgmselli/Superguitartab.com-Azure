@@ -1,4 +1,4 @@
-import { User } from "lucide-react";
+// import { User } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { LogoAndTextWhite } from "../Logo";
@@ -53,12 +53,12 @@ export const Navbar: React.FC = () => {
                     <Link to="/browse">Browse</Link>
                 </div>
             </div>
-            <div className="flex items-center gap-8">
+            {/* <div className="flex items-center gap-8">
                 <div className="flex items-center gap-2 cursor-pointer text-gray-300 hover:text-white transition-colors">
                     <User size={18} />
                     <p className="text-sm font-light">Sign in</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     </div>
   );
