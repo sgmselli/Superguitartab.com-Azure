@@ -7,7 +7,7 @@ export async function getTabData(id: string): Promise<TabResponse>{
 }
 
 export async function getTabs(limit: number = 15, offset: number = 0): Promise<TabResponse[]>{
-  const response = await api.get(`tabs?limit=${limit}&offset=${offset}`);
+  const response = await api.get(`tabs/?limit=${limit}&offset=${offset}`);
   return response.data;
 }
 
