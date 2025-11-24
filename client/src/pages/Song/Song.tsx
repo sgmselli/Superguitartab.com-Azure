@@ -110,7 +110,7 @@ const Song: React.FC = () => {
             <div className='flex-1 flex flex-col gap-4'>
                 <div className='lg:hidden flex flex-col justify-center items-center bg-gray-100 p-5 gap-4 rounded-lg'>
                     <h1 className='text-2xl primary-color font-semibold '>Download {songName} now!</h1>
-                    <button className='btn btn-lg w-full surface-color primary-color-bg rounded-lg' onClick={downloadTab}>Download tab</button>
+                    <button aria-label='Download song button for mobile' className='btn btn-lg w-full surface-color primary-color-bg rounded-lg' onClick={downloadTab}>Download tab</button>
                 </div>
                 <TabViewer pdfUrl={fileUrl} numPages={numPages} setNumPages={setNumPages} />
             </div>
@@ -127,7 +127,7 @@ const Song: React.FC = () => {
                 <p className='text-md font-light mt-5' >{description}</p>
 
                 <div className='flex flex-row gap-4 mt-8'>
-                    <button className='btn btn-lg surface-color secondary-color-bg rounded-lg' onClick={downloadTab}>Download tab</button>
+                    <button aria-label='Download song button' className='btn btn-lg surface-color secondary-color-bg rounded-lg' onClick={downloadTab}>Download tab</button>
                     <button className='hidden btn btn-lg surface-color primary-color-bg rounded-lg'><Heart size={18} /> <span className='pl-2'>Support us</span></button>
                 </div>
                 
