@@ -10,8 +10,3 @@ class TestSettings(BaseAppSettings):
     database_host: str = "db"
     database_password: str = "password"
     database_user: str = "postgres"
-
-    model_config = SettingsConfigDict(
-        env_file='.env',
-        extra="ignore"
-    )
