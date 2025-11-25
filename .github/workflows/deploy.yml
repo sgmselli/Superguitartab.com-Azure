@@ -42,7 +42,7 @@ jobs:
 
       - name: Seed database
         run: |
-          cd tabs api
+          cd tabs-api
           python -m app.db.seed.seed_tab_data
 
       - name: Install Playwright
