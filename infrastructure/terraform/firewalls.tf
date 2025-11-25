@@ -6,11 +6,17 @@ resource "digitalocean_firewall" "guitar_tabs_fw" {
   ]
 
   dynamic "inbound_rule" {
-    for_each = [0, 1, 2, 3, 4]
+    for_each = range(local.github_ips_chunks)
+
     content {
-      protocol         = "tcp"
-      port_range       = "22"
-      source_addresses = slice(var.github_actions_ips, inbound_rule.value * 1000, min((inbound_rule.value + 1) * 1000, length(var.github_actions_ips)))
+      protocol   = "tcp"
+      port_range = "22"
+
+      source_addresses = slice(
+        local.github_actions_ipv4,
+        inbound_rule.value * 1000,
+        min((inbound_rule.value + 1) * 1000, length(local.github_actions_ipv4))
+      )
     }
   }
 
@@ -37,4 +43,20 @@ resource "digitalocean_firewall" "guitar_tabs_fw" {
     port_range            = "all"
     destination_addresses = ["0.0.0.0/0", "::/0"]
   }
+}
+
+data "http" "github_meta" {
+  url = "https://api.github.com/meta"
+}
+
+#Fetches Github Action runner IP addresses from Github meta API and removes the IPv6 addresses.
+locals {
+  all_github_actions_ips = jsondecode(data.http.github_meta.response_body).actions
+
+  github_actions_ipv4 = [
+    for cidr in local.all_github_actions_ips : cidr
+    if can(regex("^\\d+\\.\\d+\\.\\d+\\.\\d+/", cidr))
+  ]
+
+  github_ips_chunks = ceil(length(local.github_actions_ipv4) / 1000)
 }

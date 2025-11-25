@@ -3,6 +3,10 @@ name: Build and deploy
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'infrastructure/**'
+      - 'docs/**'
+      - 'README.md'
 
 jobs:
 
