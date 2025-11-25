@@ -32,9 +32,13 @@ jobs:
         run: |
           docker compose -f ./compose/docker-compose.yml up --build -d
 
-      - name: Wait for services
+      - name: Wait for API service
         run: |
           ./wait-for-it.sh localhost:8000 -t 30
+        
+      - name: Wait for Postgres service
+        run: |
+          ./wait-for-it.sh localhost:5432 -t 60
 
       - name: Seed database
         run: |
