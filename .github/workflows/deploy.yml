@@ -35,15 +35,11 @@ jobs:
       - name: Wait for API service
         run: |
           ./wait-for-it.sh localhost:8000 -t 30
-        
-      - name: Wait for Postgres service
-        run: |
-          ./wait-for-it.sh localhost:5432 -t 60
 
       - name: Seed database
         run: |
-          cd tabs-api
-          python -m app.db.seed.seed_tab_data
+          docker compose -f ./compose/docker-compose.yml exec tabs-api \
+          bash -c "until pg_isready -h db -U postgres; do echo 'Waiting for DB...'; sleep 1; done"
 
       - name: Install Playwright
         run: |
