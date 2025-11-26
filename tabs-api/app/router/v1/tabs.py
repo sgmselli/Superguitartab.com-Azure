@@ -8,7 +8,6 @@ from app.business_logic.tab_uploader import TabUploader
 from app.constants.genre import Genre
 from app.constants.style import Style
 from app.external_services.s3_client import S3Client
-from app.models.tab import Tab
 from app.services import tab_services
 from app.schema.tab import TabCreate, TabResponse
 from app.db.session import get_session
@@ -17,9 +16,11 @@ from app.constants.http_error_codes import (
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND
 )
-from app.utils.logging import Logger, LogLevel
-
 router = APIRouter()
+
+@router.get("/ping")
+async def ping():
+    return {"message": "pong"}
 
 @router.get("/tab/{tab_id}", response_model=TabResponse)
 async def get_tab(tab_id: int, session: AsyncSession = Depends(get_session)):
@@ -58,7 +59,7 @@ async def get_tabs_by_genre(
     Route to fetch all tabs of a specific genre with pagination.
     """
     tabs = await tab_services.get_tabs_by_genre(genre, session, limit, offset)
-    return  [TabResponse.model_validate(tab) for tab in tabs]
+    return  [TabResponse.model_validate(tab) for tab in tabs if tab.genre == genre]
 
 @router.get("/style/{style}", response_model=list[TabResponse])
 async def get_tabs_by_style(
@@ -71,7 +72,7 @@ async def get_tabs_by_style(
     Route to fetch all tabs of a specific style with pagination.
     """
     tabs = await tab_services.get_tabs_by_style(style, session, limit, offset)
-    return  [TabResponse.model_validate(tab) for tab in tabs]
+    return  [TabResponse.model_validate(tab) for tab in tabs if tab.style == style]
 
 @router.post("/", response_model=TabResponse)
 async def upload_tab_pdf_and_metadata(
