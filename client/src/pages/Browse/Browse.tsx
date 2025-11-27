@@ -5,6 +5,7 @@ import { type TabResponse } from '../../types/tab';
 import { Loading } from '../../components/Loading';
 import { SongTable } from '../../components/SongTable/SongTable';
 import { Logo } from '../../components/Logo';
+import usePageTitle from '../../hooks/usePageTitle';
 
 const Browse: React.FC = () => {
 
@@ -15,6 +16,8 @@ const Browse: React.FC = () => {
 
     const limitIncrementValue: number = 15;
     const [limit, setLimit] = useState<number>(limitIncrementValue);
+
+    usePageTitle("Browse songs");
 
     useEffect(() => {
         const handleFetch = async () => {

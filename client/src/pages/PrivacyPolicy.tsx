@@ -1,6 +1,9 @@
+import usePageTitle from "../hooks/usePageTitle"
 
 
 export const PrivacyPolicy: React.FC = () => {
+
+    usePageTitle("Privacy policy");
 
     return (
         <div className="flex flex-col text-color mt-10">

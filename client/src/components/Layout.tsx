@@ -3,11 +3,11 @@ import { Navbar } from "./Navbar/Navbar";
 import { Footer } from "./Footer/Footer";
 import { useLocation } from "react-router-dom";
 
-interface LayoutProps {
+interface PageProps {
   children: ReactNode;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Page: React.FC<PageProps> = ({ children }) => {
 
   const { pathname } = useLocation();
 

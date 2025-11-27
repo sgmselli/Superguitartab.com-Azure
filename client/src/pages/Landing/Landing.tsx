@@ -5,20 +5,20 @@ import { Link } from 'react-router-dom'
 
 const Landing: React.FC = () => {
 
-    return (
-        <div
-        >
-            <div className="mt-5">
-                <LandingBanner />
-            </div>
-            <div className="mt-8">
-                <LandingTopSongs />
-            </div>
-            <div className="mt-30">
-                <Review />
-            </div>
-        </div>
-    )
+  return (
+      <div
+      >
+          <div className="mt-5">
+              <LandingBanner />
+          </div>
+          <div className="mt-8">
+              <LandingTopSongs />
+          </div>
+          <div className="mt-30">
+              <Review />
+          </div>
+      </div>
+  )
 
 }
 

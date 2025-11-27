@@ -7,6 +7,7 @@ import { formatTitle } from '../../utils/wordFormatting';
 import { type TabResponse } from '../../types/tab';
 import { Loading } from '../../components/Loading';
 import { SongTable } from '../../components/SongTable/SongTable';
+import usePageTitle from '../../hooks/usePageTitle';
 
 const Genre: React.FC = () => {
 
@@ -19,6 +20,8 @@ const Genre: React.FC = () => {
 
     const limitIncrementValue: number = 15;
     const [limit, setLimit] = useState<number>(limitIncrementValue);
+
+    usePageTitle(`${formatTitle(genre)} genre music tabular sheets` || "Loading...")
 
     useEffect(() => {
         const handleFetch = async () => {

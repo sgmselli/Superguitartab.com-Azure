@@ -1,4 +1,4 @@
-export const formatTitle = (title: string | null) => {
+export const formatTitle = (title: string | null | undefined) => {
     /**
      * Take in a string parameter and capitalize the first word + remove hythens and replace with space.
      */

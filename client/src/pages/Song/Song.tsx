@@ -9,6 +9,8 @@ import { Loading } from '../../components/Loading';
 import type { DifficultyLevel } from '../../constants/difficulty';
 import type { Genre } from '../../constants/genre';
 import type { Style } from '../../constants/style';
+import usePageTitle from '../../hooks/usePageTitle';
+import { formatTitle } from '../../utils/wordFormatting';
 
 const Song: React.FC = () => {
 
@@ -29,6 +31,8 @@ const Song: React.FC = () => {
 
     const [loading, setLoading] = useState<boolean>(false);
     // const [error, setError] = useState<string | null>(null);
+
+    usePageTitle(`${songName} music tabular` || "Loading...");
 
     if (!id) {
         return <p>Invalid tab ID</p>;
@@ -147,8 +151,8 @@ const Song: React.FC = () => {
                         <p>{songName}</p>
                         <p>{artist ? artist : "No artist"}</p>
                         <p>{album ? album : "No album"}</p>
-                        <p>{genre}</p>
-                        <p>{style}</p>
+                        <p>{formatTitle(genre)}</p>
+                        <p>{formatTitle(style)}</p>
                         <p>{difficulty}</p>
                         <p>{lyricsIncluded ? "Yes" : "No"}</p>
                         <p>{numPages}</p>

@@ -1,5 +1,8 @@
+import usePageTitle from "../hooks/usePageTitle"
 
 export const TermsAndConditions: React.FC = () => {
+
+    usePageTitle("Terms and conditions");
 
     return (
         <div className="flex flex-col text-color mt-10">
