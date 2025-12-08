@@ -1,7 +1,8 @@
-from sqlalchemy import or_
+from sqlalchemy import or_, update
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
+from app.models.user_tab import UserTab
 from app.schema.tab import TabCreate
 from app.models.tab import Tab
 from app.constants.genre import Genre
@@ -13,6 +14,17 @@ async def get_tab_by_id(tab_id: int, session: AsyncSession) -> Tab:
     """
     tab = await session.get(Tab, tab_id)
     return tab
+
+async def increment_downloads(tab_id: int, session: AsyncSession):
+    """
+    Increment tab downloads by one
+    """
+    await session.execute(
+        update(Tab)
+        .where(Tab.id == tab_id)
+        .values(downloads=Tab.downloads + 1)
+    )
+    await session.commit()
 
 async def create_tab(tab_create: TabCreate, session: AsyncSession) -> Tab:
     """
@@ -100,3 +112,18 @@ async def search_tabs(
     result = await session.execute(db_query)
     tabs = result.scalars().all()
     return tabs
+
+async def register_user_tab_download(user_id: int, tab_id: int, session: AsyncSession):
+    existing = await session.execute(
+        select(UserTab).where(
+            UserTab.user_id == user_id,
+            UserTab.tab_id == tab_id
+        )
+    )
+    existing = existing.scalars().first()
+
+    if not existing:
+        session.add(UserTab(user_id=user_id, tab_id=tab_id))
+        await increment_downloads(tab_id, session)
+
+    await session.commit()
