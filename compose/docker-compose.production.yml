@@ -64,4 +64,4 @@ networks:
   frontend:
     internal: false
   backend:
-    internal: true
+    driver: bridge

@@ -85,7 +85,6 @@ export const Register: React.FC = () => {
     // Handle Google Login
     // -----------------------------
     const handleGoogleRegister= async () => {
-        setLoading(true);
         window.location.href = "api/v1/auth/google/login";
     };
 

@@ -56,7 +56,6 @@ export const Login: React.FC = () => {
     // Handle Google Login
     // -----------------------------
     const handleGoogleLogin = async () => {
-        setLoading(true);
         window.location.href = "api/v1/auth/google/login";
     };
 
