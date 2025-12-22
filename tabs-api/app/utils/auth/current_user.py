@@ -13,7 +13,12 @@ from app.services.user_services import get_user_by_id
 from app.utils.auth.jwt import decode_access_token
 from app.utils.logging import Logger, LogLevel
 
-async def get_current_user(access_token: str = Cookie(None), session: AsyncSession = Depends(get_session)) -> User:
+async def get_current_user_or_raise_http_error(access_token: str = Cookie(None), session: AsyncSession = Depends(get_session)) -> User:
+    """
+    Accepts an access token from a cookie and returns a user.
+
+    If the user cannot be fetched, throw a HTTP exception
+    """
     if access_token is None:
         raise HTTPException(status_code=HTTP_401_UNAUTHORIZED, detail="You must be authorized to access.", headers={"WWW-Authenticate": "Bearer"})
 
@@ -32,5 +37,33 @@ async def get_current_user(access_token: str = Cookie(None), session: AsyncSessi
     except UserIdDoesNotExist as e:
         Logger.log(LogLevel.ERROR, f"User ID `{user_id}` from access token sub does not exist")
         raise HTTPException(status_code=HTTP_404_NOT_FOUND, detail=str(e))
+
+    return user
+
+async def get_current_user_or_return_none(access_token: str = Cookie(None), session: AsyncSession = Depends(get_session)) -> User | None:
+    """
+    Accepts an access token from a cookie and returns a user.
+
+    If the user cannot be fetched, return None
+    """
+
+    if access_token is None:
+        return None
+
+    try:
+        payload = decode_access_token(access_token)
+    except JWTError as e:
+        Logger.log(LogLevel.ERROR, f"Error decoding access token {str(e)}")
+        return None
+
+    user_id = payload.get("sub")
+    if user_id is None:
+        return None
+
+    try:
+        user = await get_user_by_id(int(user_id), session)
+    except UserIdDoesNotExist as e:
+        Logger.log(LogLevel.ERROR, f"User ID `{user_id}` from access token sub does not exist")
+        return None
 
     return user

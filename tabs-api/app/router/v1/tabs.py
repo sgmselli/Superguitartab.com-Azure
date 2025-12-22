@@ -18,12 +18,13 @@ from app.constants.http_error_codes import (
     HTTP_500_INTERNAL_SERVER_ERROR
 )
 from app.services.tab_services import register_user_tab_download
-from app.utils.auth.current_user import get_current_user
+from app.utils.auth.current_user import get_current_user_or_raise_http_error, get_current_user_or_return_none
+from app.utils.logging import Logger, LogLevel
 
 router = APIRouter()
 
 @router.get("/tab/{tab_id}", response_model=TabResponse)
-async def get_tab(tab_id: int, session: AsyncSession = Depends(get_session)):
+async def get_tab(tab_id: int, session: AsyncSession = Depends(get_session), current_user: User = Depends(get_current_user_or_return_none)):
     """
     Route to fetch tab by id and return it.
     """
@@ -32,7 +33,10 @@ async def get_tab(tab_id: int, session: AsyncSession = Depends(get_session)):
         raise HTTPException(status_code=HTTP_404_NOT_FOUND, detail="Tab not found")
 
     try:
-        presigned_url = S3Client().generate_presigned_url(tab.preview_file_key)
+        if current_user:
+            presigned_url = S3Client().generate_presigned_url(tab.file_key)
+        else:
+            presigned_url = S3Client().generate_presigned_url(tab.preview_file_key)
     except S3ClientException:
         raise HTTPException(status_code=HTTP_400_BAD_REQUEST, detail="Failed to get tab")
     tab_response = TabResponse.model_validate(tab)
@@ -40,7 +44,7 @@ async def get_tab(tab_id: int, session: AsyncSession = Depends(get_session)):
     return tab_response
 
 @router.get("/tab/{tab_id}/download")
-async def get_tab(tab_id: int, session: AsyncSession = Depends(get_session), current_user: User = Depends(get_current_user)):
+async def get_tab(tab_id: int, session: AsyncSession = Depends(get_session), current_user: User = Depends(get_current_user_or_raise_http_error)):
     """
     Route to fetch tab file url and increment downloads
     """
