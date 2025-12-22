@@ -4,6 +4,27 @@ from httpx import AsyncClient, ASGITransport
 from app.main import app
 from app.db.session import get_session
 
+class FakeUser:
+    def __init__(
+        self,
+        user_id: int = 1,
+        email: str = "user@example.com",
+        first_name: str = "Test",
+        last_name: str = "User",
+    ):
+        self.id = user_id
+        self.email = email
+        self.password = "hashed-password"
+        self.first_name = first_name
+        self.last_name = last_name
+
+
+@pytest_asyncio.fixture
+def fake_user():
+    def _factory(**kwargs):
+        return FakeUser(**kwargs)
+    return _factory
+
 @pytest_asyncio.fixture
 async def client():
     async with AsyncClient(

@@ -32,12 +32,6 @@ resource "digitalocean_firewall" "guitar_tabs_fw" {
     source_addresses = ["0.0.0.0/0", "::/0"]
   }
 
-  inbound_rule {
-    protocol         = "tcp"
-    port_range       = "22"
-    source_addresses = ["62.60.120.238"]
-  }
-
   outbound_rule {
     protocol              = "tcp"
     port_range            = "all"

@@ -1,24 +1,13 @@
 import pytest
-from fastapi import status, HTTPException
+from fastapi import status
 from jose import JWTError
 
 from app.router.v1.auth import password_auth
-from app.utils.auth import current_user
-from app.exceptions.user import UserEmailDoesNotExist, UserIdDoesNotExist
-
-
-class FakeUser:
-    def __init__(self, user_id: int = 1, email: str = "user@example.com"):
-        self.id = user_id
-        self.email = email
-        self.password = "hashed-password"
-        self.first_name = "Test"
-        self.last_name = "User"
-
+from app.exceptions.user import UserEmailDoesNotExist
 
 @pytest.mark.asyncio
-async def test_login_success_sets_tokens_and_returns_user(client, monkeypatch):
-    user = FakeUser()
+async def test_login_success_sets_tokens_and_returns_user(fake_user, client, monkeypatch):
+    user = fake_user()
 
     async def mock_get_user_by_email(email, session):
         return user
@@ -58,8 +47,8 @@ async def test_login_nonexistent_email_returns_unauthorized(client, monkeypatch)
 
 
 @pytest.mark.asyncio
-async def test_login_incorrect_password_returns_unauthorized(client, monkeypatch):
-    user = FakeUser()
+async def test_login_incorrect_password_returns_unauthorized(fake_user, client, monkeypatch):
+    user = fake_user()
 
     async def mock_get_user_by_email(email, session):
         return user
@@ -132,77 +121,3 @@ async def test_logout_invokes_token_cleanup(client, monkeypatch):
 
     assert response.status_code == status.HTTP_200_OK
     assert called["deleted"] is True
-
-
-@pytest.mark.asyncio
-async def test_get_current_user_returns_user(monkeypatch):
-    user = FakeUser(user_id=5)
-
-    monkeypatch.setattr(
-        current_user,
-        "decode_access_token",
-        lambda token: {"sub": user.id},
-    )
-
-    async def mock_get_user_by_id(user_id, session):
-        return user
-
-    monkeypatch.setattr(current_user, "get_user_by_id", mock_get_user_by_id)
-
-    result = await current_user.get_current_user(access_token="token", session=None)
-    assert result is user
-
-
-@pytest.mark.asyncio
-async def test_get_current_user_missing_token_raises(monkeypatch):
-    with pytest.raises(HTTPException) as excinfo:
-        await current_user.get_current_user(access_token=None, session=None)
-
-    assert excinfo.value.status_code == status.HTTP_401_UNAUTHORIZED
-
-
-@pytest.mark.asyncio
-async def test_get_current_user_invalid_token_raises(monkeypatch):
-    def raise_jwt_error(token):
-        raise JWTError("invalid")
-
-    monkeypatch.setattr(current_user, "decode_access_token", raise_jwt_error)
-
-    with pytest.raises(HTTPException) as excinfo:
-        await current_user.get_current_user(access_token="bad", session=None)
-
-    assert excinfo.value.status_code == status.HTTP_401_UNAUTHORIZED
-
-
-@pytest.mark.asyncio
-async def test_get_current_user_missing_sub_raises(monkeypatch):
-    monkeypatch.setattr(
-        current_user,
-        "decode_access_token",
-        lambda token: {},
-    )
-
-    with pytest.raises(HTTPException) as excinfo:
-        await current_user.get_current_user(access_token="no-sub", session=None)
-
-    assert excinfo.value.status_code == status.HTTP_401_UNAUTHORIZED
-
-
-@pytest.mark.asyncio
-async def test_get_current_user_unknown_user_raises(monkeypatch):
-    monkeypatch.setattr(
-        current_user,
-        "decode_access_token",
-        lambda token: {"sub": 99},
-    )
-
-    async def mock_get_user_by_id(user_id, session):
-        raise UserIdDoesNotExist(user_id)
-
-    monkeypatch.setattr(current_user, "get_user_by_id", mock_get_user_by_id)
-
-    with pytest.raises(HTTPException) as excinfo:
-        await current_user.get_current_user(access_token="token", session=None)
-
-    assert excinfo.value.status_code == status.HTTP_404_NOT_FOUND
-

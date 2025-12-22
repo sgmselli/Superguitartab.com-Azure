@@ -12,12 +12,12 @@ from app.constants.http_error_codes import (
 )
 import app.services.user_services as user_services
 from app.models.user import User
-from app.utils.auth.current_user import get_current_user
+from app.utils.auth.current_user import get_current_user_or_raise_http_error
 
 router = APIRouter()
 
 @router.get("/current", response_model=UserResponse)
-async def get_current_user_data(current_user: User = Depends(get_current_user)):
+async def get_current_user_data(current_user: User = Depends(get_current_user_or_raise_http_error)):
     return UserResponse.model_validate(current_user)
 
 @router.post("/register", response_model=UserResponse, status_code=HTTP_201_CREATED)
@@ -45,7 +45,7 @@ async def register_user(user_create: UserCreate, session: AsyncSession = Depends
     return UserResponse.model_validate(user)
 
 @router.get("/current/downloads", status_code=HTTP_200_OK, response_model=list[TabResponse])
-async def get_users_downloaded_tabs(current_user: User = Depends(get_current_user), session: AsyncSession = Depends(get_session)):
+async def get_users_downloaded_tabs(current_user: User = Depends(get_current_user_or_raise_http_error), session: AsyncSession = Depends(get_session)):
     tabs = await user_services.get_users_downloaded_tabs(current_user, session)
     return  [TabResponse.model_validate(tab) for tab in tabs]
 
