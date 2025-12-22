@@ -3,7 +3,7 @@ import { expect, type Page } from '@playwright/test';
 export async function navigateToSong(page: Page) {
   //Go to landing page
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('superguitartab.com');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Superguitartab.com');
 
   //Search song
   const searchButton = page.getByRole('button', { name: /Open search/i });
