@@ -1,10 +1,11 @@
 import { Search, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import type { TabResponse } from "../../types/tab";
+import type { TabProps, TabResponse } from "../../types/tab";
 import { searchTabs } from "../../api/tabs";
 import { Loading } from "../Loading";
 import { LogoAndTextBlue } from "../Logo";
+import { popularSongList } from "../../constants/songList";
 
 interface SearchSongRowProps {
     id: number
@@ -146,41 +147,15 @@ const SongList: React.FC<SongListProps> = ({songs}) => {
 
 const DefaultSongList: React.FC = () => {
 
-    const popular_songs = [
-        { id: 2, song: "Wonderwall", album: "(What's the Story) Morning Glory?", artist: "Oasis" },
-        { id: 4, song: "Wish You Were Here", album: "Wish You Were Here", artist: "Pink Floyd" },
-        { id: 26, song: "Knockin' on Heaven's Door", album: "Pat Garrett & Billy the Kid", artist: "Bob Dylan" },
-        { id: 1, song: "Fast Car", album: "Tracy Chapman", artist: "Tracy Chapman" },
-        { id: 5, song: "Smoke on the Water", album: "Machine Head", artist: "Deep Purple" },
-        { id: 6, song: "Stand by Me", album: "Don't Play That Song!", artist: "Ben E. King" },
-        { id: 34, song: "Blackbird", album: "The Beatles (White Album)", artist: "The Beatles" },
-        { id: 8, song: "Shallow", album: "A Star Is Born (Soundtrack)", artist: "Lady Gaga & Bradley Cooper" },
-        { id: 9, song: "Riptide", album: "Dream Your Life Away", artist: "Vance Joy" },
-        { id: 14, song: "Hey There Delilah", album: "All That We Needed", artist: "Plain White T’s" },
-        { id: 11, song: "Hotel California", album: "Hotel California", artist: "Eagles" },
-        { id: 22, song: "She's Electric", album: "(What's the Story) Morning Glory?", artist: "Oasis" },
-        { id: 32, song: "Seven Nation Army", album: "Elephant", artist: "The White Stripes" },
-        { id: 484, song: "Boulevard of Broken Dreams", album: "American Idiot", artist: "Green Day" },
-        { id: 46, song: "Yellow", album: "Parachutes", artist: "Coldplay" },
-        { id: 6, song: "Tears in Heaven", album: "Rush (Soundtrack)", artist: "Eric Clapton" },
-        { id: 45, song: "Road Trippin'", album: "Californication", artist: "Red Hot Chili Peppers" },
-        { id: 3, song: "Under the Bridge", album: "Blood Sugar Sex Magik", artist: "Red Hot Chili Peppers" },
-        { id: 19, song: "Wonder", album: "Wonder", artist: "Shawn Mendes" },
-        { id: 42, song: "Hallelujah", album: "Grace", artist: "Jeff Buckley" },
-        { id: 21, song: "Let It Be", album: "Let It Be", artist: "The Beatles" },
-        { id: 22, song: "Layla (Unplugged)", album: "Unplugged", artist: "Eric Clapton" },
-        { id: 8, song: "Viva La Vida", album: "Viva la Vida or Death and All His Friends", artist: "Coldplay" },
-        { id: 24, song: "Say You Won't Let Go", album: "Back from the Edge", artist: "James Arthur" },
-        { id: 21, song: "Landslide", album: "Fleetwood Mac", artist: "Fleetwood Mac" }
-    ];
+    const songs: TabProps[] = popularSongList
 
     return (
          <div className=" w-full py-6 px-3 space-y-2">
             <p className="text-xs text-gray-500 uppercase tracking-wider mb-4 pl-6">
                 Popular tabs
             </p>
-            {popular_songs.map((song, idx) => (
-                <SearchSongRow key={song.id} id={song.id} rank={idx+1} song_name={song.song} album={song.album} artist={song.artist} />
+            {songs.map((song, idx) => (
+                <SearchSongRow key={song.id} id={song.id} rank={idx+1} song_name={song.songName} album={song.album} artist={song.artist} />
             ))}
         </div>
     )

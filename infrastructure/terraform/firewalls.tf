@@ -43,6 +43,7 @@ resource "digitalocean_firewall" "guitar_tabs_fw" {
     port_range            = "all"
     destination_addresses = ["0.0.0.0/0", "::/0"]
   }
+
 }
 
 data "http" "github_meta" {

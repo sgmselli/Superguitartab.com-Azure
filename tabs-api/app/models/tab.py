@@ -20,6 +20,7 @@ class Tab(Base):
     lyrics_included = Column(Boolean, nullable=False, default=False)
     file_key = Column(String(255), nullable=False)
     preview_file_key = Column(String(255), nullable=True)
+    thumbnail_file_key = Column(String(255), nullable=True)
     file_name = Column(String(255), nullable=False)
     downloads = Column(Integer, nullable=False,  default=0)
 

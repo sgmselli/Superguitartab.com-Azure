@@ -19,3 +19,11 @@ export interface TabResponse {
 export interface TabFileUrlResponse {
     file_url: string | null
 }
+
+export interface TabProps {
+  id: number;
+  songName: string;
+  artist: string;
+  album: string;
+  thumbnailFileUrl: string;
+}
