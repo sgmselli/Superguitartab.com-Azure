@@ -17,6 +17,7 @@ class TabResponse(BaseModel):
     lyrics_included: bool
     file_name: str
     file_url: str | None = None
+    thumbnail_file_url: str | None = None
 
     model_config = {"from_attributes": True}
 

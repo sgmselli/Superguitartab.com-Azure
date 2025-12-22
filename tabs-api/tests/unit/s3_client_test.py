@@ -1,3 +1,4 @@
+from app.exceptions.s3 import S3ClientException
 from app.external_services.s3_client import S3Client
 
 def test_generate_presigned_url_success(mock_boto_client):
@@ -17,9 +18,9 @@ def test_generate_presigned_url_failure(monkeypatch, mock_boto_client):
     )
 
     client = S3Client()
-    url = client.generate_presigned_url("bad-file.pdf")
 
-    assert url is None
+    with pytest.raises(S3ClientException) as exc_info:
+        client.generate_presigned_url("bad-file.pdf")
 
 import pytest
 
@@ -32,9 +33,8 @@ async def test_upload_fileobj_success(monkeypatch, mock_boto_client):
             return b"fake-pdf-data"
 
     file = MockUploadFile()
-    result = await client.upload_fileobj("test.pdf", file)
+    await client.upload_fileobj("test.pdf", file)
 
-    assert result is True
     assert mock_boto_client.upload_called is True
 
 @pytest.mark.asyncio
@@ -56,15 +56,13 @@ async def test_upload_fileobj_failure(monkeypatch, mock_boto_client):
 
     file = MockUploadFile()
 
-    result = await client.upload_fileobj("bad.pdf", file)
-
-    assert result is False
+    with pytest.raises(S3ClientException) as exc_info:
+        await client.upload_fileobj("bad.pdf", file)
 
 def test_delete_object_success(mock_boto_client):
     client = S3Client()
-    result = client.delete_object("file.pdf")
+    client.delete_object("file.pdf")
 
-    assert result is True
     assert mock_boto_client.deleted is True
 
 def test_delete_object_failure(monkeypatch, mock_boto_client):
@@ -78,6 +76,6 @@ def test_delete_object_failure(monkeypatch, mock_boto_client):
     )
 
     client = S3Client()
-    result = client.delete_object("bad.pdf")
 
-    assert result is False
+    with pytest.raises(S3ClientException) as exc_info:
+        client.delete_object("bad.pdf")

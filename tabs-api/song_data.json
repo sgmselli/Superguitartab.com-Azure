@@ -12,7 +12,8 @@
     "file_key": "tabs/tracy-chapman/fast-car/fast-car-f7bb810718.pdf",
     "file_name": "fast-car.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/tracy-chapman/fast-car/fast-car-preview-f7bb810718.pdf"
+    "preview_file_key": "tabs/tracy-chapman/fast-car/fast-car-preview-f7bb810718.pdf",
+    "thumbnail_file_key": "tabs/tracy-chapman/fast-car/fast-car-f7bb810718_page1.jpg"
   },
   {
     "id": 2,
@@ -27,7 +28,8 @@
     "file_key": "tabs/oasis/wonderwall/wonderwall-351528e256.pdf",
     "file_name": "wonderwall.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/oasis/wonderwall/wonderwall-preview-351528e256.pdf"
+    "preview_file_key": "tabs/oasis/wonderwall/wonderwall-preview-351528e256.pdf",
+    "thumbnail_file_key": "tabs/oasis/wonderwall/wonderwall-351528e256_page1.jpg"
   },
   {
     "id": 3,
@@ -42,7 +44,8 @@
     "file_key": "tabs/red-hot-chili-peppers/under-the-bridge/under-the-bridge-1e523bf37f.pdf",
     "file_name": "under-the-bridge.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/red-hot-chili-peppers/under-the-bridge/under-the-bridge-preview-1e523bf37f.pdf"
+    "preview_file_key": "tabs/red-hot-chili-peppers/under-the-bridge/under-the-bridge-preview-1e523bf37f.pdf",
+    "thumbnail_file_key": "tabs/red-hot-chili-peppers/under-the-bridge/under-the-bridge-1e523bf37f_page1.jpg"
   },
   {
     "id": 4,
@@ -57,7 +60,8 @@
     "file_key": "tabs/pink-floyd/wish-you-were-here/wish-you-were-here-ee7c682f9d.pdf",
     "file_name": "wish-you-were-here.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/pink-floyd/wish-you-were-here/wish-you-were-here-preview-ee7c682f9d.pdf"
+    "preview_file_key": "tabs/pink-floyd/wish-you-were-here/wish-you-were-here-preview-ee7c682f9d.pdf",
+    "thumbnail_file_key": "tabs/pink-floyd/wish-you-were-here/wish-you-were-here-ee7c682f9d_page1.jpg"
   },
   {
     "id": 5,
@@ -72,7 +76,8 @@
     "file_key": "tabs/deep-purple/smoke-on-the-water/smoke-on-the-water-7b041467fa.pdf",
     "file_name": "smoke-on-the-water.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/deep-purple/smoke-on-the-water/smoke-on-the-water-preview-7b041467fa.pdf"
+    "preview_file_key": "tabs/deep-purple/smoke-on-the-water/smoke-on-the-water-preview-7b041467fa.pdf",
+    "thumbnail_file_key": "tabs/deep-purple/smoke-on-the-water/smoke-on-the-water-7b041467fa_page1.jpg"
   },
   {
     "id": 6,
@@ -87,7 +92,8 @@
     "file_key": "tabs/eric-clapton/tears-in-heaven/tears-in-heaven-5b369937aa.pdf",
     "file_name": "eric-clapton-tears-in-heavan.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/eric-clapton/tears-in-heaven/tears-in-heaven-preview-5b369937aa.pdf"
+    "preview_file_key": "tabs/eric-clapton/tears-in-heaven/tears-in-heaven-preview-5b369937aa.pdf",
+    "thumbnail_file_key": "tabs/eric-clapton/tears-in-heaven/tears-in-heaven-5b369937aa_page1.jpg"
   },
   {
     "id": 7,
@@ -102,7 +108,8 @@
     "file_key": "tabs/sting/fields-of-gold/fields-of-gold-1a1d73ef91.pdf",
     "file_name": "fields-of-gold.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/sting/fields-of-gold/fields-of-gold-preview-1a1d73ef91.pdf"
+    "preview_file_key": "tabs/sting/fields-of-gold/fields-of-gold-preview-1a1d73ef91.pdf",
+    "thumbnail_file_key": "tabs/sting/fields-of-gold/fields-of-gold-1a1d73ef91_page1.jpg"
   },
   {
     "id": 8,
@@ -117,7 +124,8 @@
     "file_key": "tabs/coldplay/viva-la-vida/viva-la-vida-c07b7b9ff1.pdf",
     "file_name": "viva-la-vida.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/coldplay/viva-la-vida/viva-la-vida-preview-c07b7b9ff1.pdf"
+    "preview_file_key": "tabs/coldplay/viva-la-vida/viva-la-vida-preview-c07b7b9ff1.pdf",
+    "thumbnail_file_key": "tabs/coldplay/viva-la-vida/viva-la-vida-c07b7b9ff1_page1.jpg"
   },
   {
     "id": 9,
@@ -132,7 +140,8 @@
     "file_key": "tabs/traditional/the-sailor-song/sailor-song-1ce604e72d.pdf",
     "file_name": "sailor-song.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/traditional/the-sailor-song/sailor-song-preview-1ce604e72d.pdf"
+    "preview_file_key": "tabs/traditional/the-sailor-song/sailor-song-preview-1ce604e72d.pdf",
+    "thumbnail_file_key": "tabs/traditional/the-sailor-song/sailor-song-1ce604e72d_page1.jpg"
   },
   {
     "id": 10,
@@ -147,7 +156,8 @@
     "file_key": "tabs/oasis/married-with-children/married-with-children-a73d3b8f17.pdf",
     "file_name": "married-with-children.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/oasis/married-with-children/married-with-children-preview-a73d3b8f17.pdf"
+    "preview_file_key": "tabs/oasis/married-with-children/married-with-children-preview-a73d3b8f17.pdf",
+    "thumbnail_file_key": "tabs/oasis/married-with-children/married-with-children-a73d3b8f17_page1.jpg"
   },
   {
     "id": 11,
@@ -162,7 +172,8 @@
     "file_key": "tabs/arctic-monkeys/505/505-9d8efb381c.pdf",
     "file_name": "arctic-monkeys-505.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/arctic-monkeys/505/505-preview-9d8efb381c.pdf"
+    "preview_file_key": "tabs/arctic-monkeys/505/505-preview-9d8efb381c.pdf",
+    "thumbnail_file_key": "tabs/arctic-monkeys/505/505-9d8efb381c_page1.jpg"
   },
   {
     "id": 12,
@@ -177,7 +188,8 @@
     "file_key": "tabs/sting/shape-of-my-heart/shape-of-my-heart-c1eca0af80.pdf",
     "file_name": "shape-of-my-heart.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/sting/shape-of-my-heart/shape-of-my-heart-preview-c1eca0af80.pdf"
+    "preview_file_key": "tabs/sting/shape-of-my-heart/shape-of-my-heart-preview-c1eca0af80.pdf",
+    "thumbnail_file_key": "tabs/sting/shape-of-my-heart/shape-of-my-heart-c1eca0af80_page1.jpg"
   },
   {
     "id": 13,
@@ -192,7 +204,8 @@
     "file_key": "tabs/arctic-monkeys/do-i-wanna-know/do-i-wanna-know-4523ab2ade.pdf",
     "file_name": "do-i-wanna-know.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/arctic-monkeys/do-i-wanna-know/do-i-wanna-know-preview-4523ab2ade.pdf"
+    "preview_file_key": "tabs/arctic-monkeys/do-i-wanna-know/do-i-wanna-know-preview-4523ab2ade.pdf",
+    "thumbnail_file_key": "tabs/arctic-monkeys/do-i-wanna-know/do-i-wanna-know-4523ab2ade_page1.jpg"
   },
   {
     "id": 14,
@@ -207,7 +220,8 @@
     "file_key": "tabs/the-plain-white-ts/hey-there-delilah/hey-there-delilah-a447f9fc99.pdf",
     "file_name": "hey-there-deliliah.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/the-plain-white-ts/hey-there-delilah/hey-there-delilah-preview-a447f9fc99.pdf"
+    "preview_file_key": "tabs/the-plain-white-ts/hey-there-delilah/hey-there-delilah-preview-a447f9fc99.pdf",
+    "thumbnail_file_key": "tabs/the-plain-white-ts/hey-there-delilah/hey-there-delilah-a447f9fc99_page1.jpg"
   },
   {
     "id": 15,
@@ -222,7 +236,8 @@
     "file_key": "tabs/arctic-monkeys/fake-tales-of-san-francisco/fake-tales-of-san-francisco-852ee42dd0.pdf",
     "file_name": "arctic-monkeys-fake-tales-of-san-francisco-electirc.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/arctic-monkeys/fake-tales-of-san-francisco/fake-tales-of-san-francisco-preview-852ee42dd0.pdf"
+    "preview_file_key": "tabs/arctic-monkeys/fake-tales-of-san-francisco/fake-tales-of-san-francisco-preview-852ee42dd0.pdf",
+    "thumbnail_file_key": "tabs/arctic-monkeys/fake-tales-of-san-francisco/fake-tales-of-san-francisco-852ee42dd0_page1.jpg"
   },
   {
     "id": 16,
@@ -237,7 +252,8 @@
     "file_key": "tabs/the-beatles/yesterday/yesterday-3a8886068f.pdf",
     "file_name": "yesterday.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/the-beatles/yesterday/yesterday-preview-3a8886068f.pdf"
+    "preview_file_key": "tabs/the-beatles/yesterday/yesterday-preview-3a8886068f.pdf",
+    "thumbnail_file_key": "tabs/the-beatles/yesterday/yesterday-3a8886068f_page1.jpg"
   },
   {
     "id": 17,
@@ -252,7 +268,8 @@
     "file_key": "tabs/arctic-monkeys/do-i-wanna-know-bass/do-i-wanna-know-bass-b0c52123ec.pdf",
     "file_name": "arctic-monkeys-do-i-wanna-know-bass.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/arctic-monkeys/do-i-wanna-know-bass/do-i-wanna-know-bass-preview-b0c52123ec.pdf"
+    "preview_file_key": "tabs/arctic-monkeys/do-i-wanna-know-bass/do-i-wanna-know-bass-preview-b0c52123ec.pdf",
+    "thumbnail_file_key": "tabs/arctic-monkeys/do-i-wanna-know-bass/do-i-wanna-know-bass-b0c52123ec_page1.jpg"
   },
   {
     "id": 18,
@@ -267,7 +284,8 @@
     "file_key": "tabs/metallica/nothing-else-matters/nothing-else-matters-11130b498d.pdf",
     "file_name": "metallica-nothing-else-matters.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/metallica/nothing-else-matters/nothing-else-matters-preview-11130b498d.pdf"
+    "preview_file_key": "tabs/metallica/nothing-else-matters/nothing-else-matters-preview-11130b498d.pdf",
+    "thumbnail_file_key": "tabs/metallica/nothing-else-matters/nothing-else-matters-11130b498d_page1.jpg"
   },
   {
     "id": 19,
@@ -282,7 +300,8 @@
     "file_key": "tabs/traditional/happy-birthday/happy-birthday-ac4e24bb9d.pdf",
     "file_name": "Happy-Birthday.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/traditional/happy-birthday/happy-birthday-preview-ac4e24bb9d.pdf"
+    "preview_file_key": "tabs/traditional/happy-birthday/happy-birthday-preview-ac4e24bb9d.pdf",
+    "thumbnail_file_key": "tabs/traditional/happy-birthday/happy-birthday-ac4e24bb9d_page1.jpg"
   },
   {
     "id": 20,
@@ -297,7 +316,8 @@
     "file_key": "tabs/led-zeppelin/stairway-to-heaven/stairway-to-heaven-239c66baff.pdf",
     "file_name": "led-zeppelin-stairway-to-heaven.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/led-zeppelin/stairway-to-heaven/stairway-to-heaven-preview-239c66baff.pdf"
+    "preview_file_key": "tabs/led-zeppelin/stairway-to-heaven/stairway-to-heaven-preview-239c66baff.pdf",
+    "thumbnail_file_key": "tabs/led-zeppelin/stairway-to-heaven/stairway-to-heaven-239c66baff_page1.jpg"
   },
   {
     "id": 21,
@@ -312,7 +332,8 @@
     "file_key": "tabs/fleetwood-mac/landslide/landslide-966e9c2d46.pdf",
     "file_name": "Fleetwood-Mac.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/fleetwood-mac/landslide/landslide-preview-966e9c2d46.pdf"
+    "preview_file_key": "tabs/fleetwood-mac/landslide/landslide-preview-966e9c2d46.pdf",
+    "thumbnail_file_key": "tabs/fleetwood-mac/landslide/landslide-966e9c2d46_page1.jpg"
   },
   {
     "id": 22,
@@ -327,7 +348,8 @@
     "file_key": "tabs/oasis/shes-electric/shes-electric-e4ad00545c.pdf",
     "file_name": "shes-electric.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/oasis/shes-electric/shes-electric-preview-e4ad00545c.pdf"
+    "preview_file_key": "tabs/oasis/shes-electric/shes-electric-preview-e4ad00545c.pdf",
+    "thumbnail_file_key": "tabs/oasis/shes-electric/shes-electric-e4ad00545c_page1.jpg"
   },
   {
     "id": 23,
@@ -342,7 +364,8 @@
     "file_key": "tabs/oasis/live-forever/live-forever-50419f3115.pdf",
     "file_name": "oasis-live-forever.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/oasis/live-forever/live-forever-preview-50419f3115.pdf"
+    "preview_file_key": "tabs/oasis/live-forever/live-forever-preview-50419f3115.pdf",
+    "thumbnail_file_key": "tabs/oasis/live-forever/live-forever-50419f3115_page1.jpg"
   },
   {
     "id": 24,
@@ -357,7 +380,8 @@
     "file_key": "tabs/traditional/jingle-bells/jingle-bells-4d4b85cee6.pdf",
     "file_name": "jingle-bells.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/traditional/jingle-bells/jingle-bells-preview-4d4b85cee6.pdf"
+    "preview_file_key": "tabs/traditional/jingle-bells/jingle-bells-preview-4d4b85cee6.pdf",
+    "thumbnail_file_key": "tabs/traditional/jingle-bells/jingle-bells-4d4b85cee6_page1.jpg"
   },
   {
     "id": 25,
@@ -372,7 +396,8 @@
     "file_key": "tabs/coldplay/fix-you/fix-you-e60b2046ea.pdf",
     "file_name": "fix-you.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/coldplay/fix-you/fix-you-preview-e60b2046ea.pdf"
+    "preview_file_key": "tabs/coldplay/fix-you/fix-you-preview-e60b2046ea.pdf",
+    "thumbnail_file_key": "tabs/coldplay/fix-you/fix-you-e60b2046ea_page1.jpg"
   },
   {
     "id": 26,
@@ -387,7 +412,8 @@
     "file_key": "tabs/metallica/fade-to-black/fade-to-black-b02cc4a808.pdf",
     "file_name": "metallica-fade-to-black.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/metallica/fade-to-black/fade-to-black-preview-b02cc4a808.pdf"
+    "preview_file_key": "tabs/metallica/fade-to-black/fade-to-black-preview-b02cc4a808.pdf",
+    "thumbnail_file_key": "tabs/metallica/fade-to-black/fade-to-black-b02cc4a808_page1.jpg"
   },
   {
     "id": 27,
@@ -402,7 +428,8 @@
     "file_key": "tabs/queen/bohemian-rhapsody/bohemian-rhapsody-7dd24eef4d.pdf",
     "file_name": "bohemian-rhapsody.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/queen/bohemian-rhapsody/bohemian-rhapsody-preview-7dd24eef4d.pdf"
+    "preview_file_key": "tabs/queen/bohemian-rhapsody/bohemian-rhapsody-preview-7dd24eef4d.pdf",
+    "thumbnail_file_key": "tabs/queen/bohemian-rhapsody/bohemian-rhapsody-7dd24eef4d_page1.jpg"
   },
   {
     "id": 28,
@@ -417,7 +444,8 @@
     "file_key": "tabs/oasis/morning-glory-bass/morning-glory-bass-67be472c79.pdf",
     "file_name": "oasis-morning-glory-bass.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/oasis/morning-glory-bass/morning-glory-bass-preview-67be472c79.pdf"
+    "preview_file_key": "tabs/oasis/morning-glory-bass/morning-glory-bass-preview-67be472c79.pdf",
+    "thumbnail_file_key": "tabs/oasis/morning-glory-bass/morning-glory-bass-67be472c79_page1.jpg"
   },
   {
     "id": 29,
@@ -432,7 +460,8 @@
     "file_key": "tabs/arctic-monkeys/r-u-mine/r-u-mine-c01f63d48c.pdf",
     "file_name": "arctic-monkeys-r-u-mine.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/arctic-monkeys/r-u-mine/r-u-mine-preview-c01f63d48c.pdf"
+    "preview_file_key": "tabs/arctic-monkeys/r-u-mine/r-u-mine-preview-c01f63d48c.pdf",
+    "thumbnail_file_key": "tabs/arctic-monkeys/r-u-mine/r-u-mine-c01f63d48c_page1.jpg"
   },
   {
     "id": 31,
@@ -447,7 +476,8 @@
     "file_key": "tabs/oasis/little-by-little/little-by-little-1a0a776ae6.pdf",
     "file_name": "little-by-little.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/oasis/little-by-little/little-by-little-preview-1a0a776ae6.pdf"
+    "preview_file_key": "tabs/oasis/little-by-little/little-by-little-preview-1a0a776ae6.pdf",
+    "thumbnail_file_key": "tabs/oasis/little-by-little/little-by-little-1a0a776ae6_page1.jpg"
   },
   {
     "id": 32,
@@ -462,7 +492,8 @@
     "file_key": "tabs/the-white-stripes/seven-nation-army/seven-nation-army-feb3c32494.pdf",
     "file_name": "seven-nation-army.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/the-white-stripes/seven-nation-army/seven-nation-army-preview-feb3c32494.pdf"
+    "preview_file_key": "tabs/the-white-stripes/seven-nation-army/seven-nation-army-preview-feb3c32494.pdf",
+    "thumbnail_file_key": "tabs/the-white-stripes/seven-nation-army/seven-nation-army-feb3c32494_page1.jpg"
   },
   {
     "id": 33,
@@ -477,7 +508,8 @@
     "file_key": "tabs/john-mayer/slow-dancing-in-a-burning-room/slow-dancing-in-a-burning-room-f6cae83590.pdf",
     "file_name": "john-mayer-slow-dancing-in-a-burning-room.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/john-mayer/slow-dancing-in-a-burning-room/slow-dancing-in-a-burning-room-preview-f6cae83590.pdf"
+    "preview_file_key": "tabs/john-mayer/slow-dancing-in-a-burning-room/slow-dancing-in-a-burning-room-preview-f6cae83590.pdf",
+    "thumbnail_file_key": "tabs/john-mayer/slow-dancing-in-a-burning-room/slow-dancing-in-a-burning-room-f6cae83590_page1.jpg"
   },
   {
     "id": 34,
@@ -492,7 +524,8 @@
     "file_key": "tabs/the-beatles/blackbird/blackbird-42ad57f04f.pdf",
     "file_name": "blackbird.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/the-beatles/blackbird/blackbird-preview-42ad57f04f.pdf"
+    "preview_file_key": "tabs/the-beatles/blackbird/blackbird-preview-42ad57f04f.pdf",
+    "thumbnail_file_key": "tabs/the-beatles/blackbird/blackbird-42ad57f04f_page1.jpg"
   },
   {
     "id": 35,
@@ -507,7 +540,8 @@
     "file_key": "tabs/imagine-dragons/demons/demons-c9875ff192.pdf",
     "file_name": "demons.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/imagine-dragons/demons/demons-preview-c9875ff192.pdf"
+    "preview_file_key": "tabs/imagine-dragons/demons/demons-preview-c9875ff192.pdf",
+    "thumbnail_file_key": "tabs/imagine-dragons/demons/demons-c9875ff192_page1.jpg"
   },
   {
     "id": 36,
@@ -522,7 +556,8 @@
     "file_key": "tabs/hozier/take-me-to-church/take-me-to-church-d8621a95dc.pdf",
     "file_name": "take-me-to-church.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/hozier/take-me-to-church/take-me-to-church-preview-d8621a95dc.pdf"
+    "preview_file_key": "tabs/hozier/take-me-to-church/take-me-to-church-preview-d8621a95dc.pdf",
+    "thumbnail_file_key": "tabs/hozier/take-me-to-church/take-me-to-church-d8621a95dc_page1.jpg"
   },
   {
     "id": 37,
@@ -537,7 +572,8 @@
     "file_key": "tabs/the-police/every-breath-you-take/every-breath-you-take-0a71d683b6.pdf",
     "file_name": "every-breath-you-take.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/the-police/every-breath-you-take/every-breath-you-take-preview-0a71d683b6.pdf"
+    "preview_file_key": "tabs/the-police/every-breath-you-take/every-breath-you-take-preview-0a71d683b6.pdf",
+    "thumbnail_file_key": "tabs/the-police/every-breath-you-take/every-breath-you-take-0a71d683b6_page1.jpg"
   },
   {
     "id": 38,
@@ -552,7 +588,8 @@
     "file_key": "tabs/oasis/dont-look-back-in-anger-fingerstyle/dont-look-back-in-anger-f3200a5610.pdf",
     "file_name": "dont-look-back-in-anger-finger-style.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/oasis/dont-look-back-in-anger-fingerstyle/dont-look-back-in-anger-preview-f3200a5610.pdf"
+    "preview_file_key": "tabs/oasis/dont-look-back-in-anger-fingerstyle/dont-look-back-in-anger-preview-f3200a5610.pdf",
+    "thumbnail_file_key": "tabs/oasis/dont-look-back-in-anger-fingerstyle/dont-look-back-in-anger-f3200a5610_page1.jpg"
   },
   {
     "id": 39,
@@ -567,7 +604,8 @@
     "file_key": "tabs/elvis-presley/cant-help-falling-in-love/cant-help-falling-in-love-f631ce35be.pdf",
     "file_name": "elvis-presley-cant-help-falling-in-love.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/elvis-presley/cant-help-falling-in-love/cant-help-falling-in-love-preview-f631ce35be.pdf"
+    "preview_file_key": "tabs/elvis-presley/cant-help-falling-in-love/cant-help-falling-in-love-preview-f631ce35be.pdf",
+    "thumbnail_file_key": "tabs/elvis-presley/cant-help-falling-in-love/cant-help-falling-in-love-f631ce35be_page1.jpg"
   },
   {
     "id": 40,
@@ -582,7 +620,8 @@
     "file_key": "tabs/maroon-5/memories/memories-bfff21e557.pdf",
     "file_name": "memories.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/maroon-5/memories/memories-preview-bfff21e557.pdf"
+    "preview_file_key": "tabs/maroon-5/memories/memories-preview-bfff21e557.pdf",
+    "thumbnail_file_key": "tabs/maroon-5/memories/memories-bfff21e557_page1.jpg"
   },
   {
     "id": 41,
@@ -597,7 +636,8 @@
     "file_key": "tabs/ed-sheeran/perfect/perfect-5f344335bd.pdf",
     "file_name": "perfect.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/ed-sheeran/perfect/perfect-preview-5f344335bd.pdf"
+    "preview_file_key": "tabs/ed-sheeran/perfect/perfect-preview-5f344335bd.pdf",
+    "thumbnail_file_key": "tabs/ed-sheeran/perfect/perfect-5f344335bd_page1.jpg"
   },
   {
     "id": 42,
@@ -612,7 +652,8 @@
     "file_key": "tabs/jeff-buckley/hallelujah/hallelujah-9b4a43997b.pdf",
     "file_name": "jeff-buckley-HALLELUJAH.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/jeff-buckley/hallelujah/hallelujah-preview-9b4a43997b.pdf"
+    "preview_file_key": "tabs/jeff-buckley/hallelujah/hallelujah-preview-9b4a43997b.pdf",
+    "thumbnail_file_key": "tabs/jeff-buckley/hallelujah/hallelujah-9b4a43997b_page1.jpg"
   },
   {
     "id": 43,
@@ -627,7 +668,8 @@
     "file_key": "tabs/traditional/frosty-the-snowman/frosty-the-snowman-df92c72584.pdf",
     "file_name": "Frosty-the-Snowman.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/traditional/frosty-the-snowman/frosty-the-snowman-preview-df92c72584.pdf"
+    "preview_file_key": "tabs/traditional/frosty-the-snowman/frosty-the-snowman-preview-df92c72584.pdf",
+    "thumbnail_file_key": "tabs/traditional/frosty-the-snowman/frosty-the-snowman-df92c72584_page1.jpg"
   },
   {
     "id": 44,
@@ -642,7 +684,8 @@
     "file_key": "tabs/oasis/stand-by-me/stand-by-me-e872047287.pdf",
     "file_name": "oasis-stand-by-me-electric.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/oasis/stand-by-me/stand-by-me-preview-e872047287.pdf"
+    "preview_file_key": "tabs/oasis/stand-by-me/stand-by-me-preview-e872047287.pdf",
+    "thumbnail_file_key": "tabs/oasis/stand-by-me/stand-by-me-e872047287_page1.jpg"
   },
   {
     "id": 45,
@@ -657,7 +700,8 @@
     "file_key": "tabs/red-hot-chili-peppers/road-trippin/road-trippin-01641b7417.pdf",
     "file_name": "road-trippin.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/red-hot-chili-peppers/road-trippin/road-trippin-preview-01641b7417.pdf"
+    "preview_file_key": "tabs/red-hot-chili-peppers/road-trippin/road-trippin-preview-01641b7417.pdf",
+    "thumbnail_file_key": "tabs/red-hot-chili-peppers/road-trippin/road-trippin-01641b7417_page1.jpg"
   },
   {
     "id": 46,
@@ -672,7 +716,8 @@
     "file_key": "tabs/coldplay/yellow/yellow-396af85e47.pdf",
     "file_name": "yellow.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/coldplay/yellow/yellow-preview-396af85e47.pdf"
+    "preview_file_key": "tabs/coldplay/yellow/yellow-preview-396af85e47.pdf",
+    "thumbnail_file_key": "tabs/coldplay/yellow/yellow-396af85e47_page1.jpg"
   },
   {
     "id": 47,
@@ -687,7 +732,8 @@
     "file_key": "tabs/frank-sinatra/fly-me-to-the-moon/fly-me-to-the-moon-d6d36420ec.pdf",
     "file_name": "frank-sinatra-fly-me-to-the-moon.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/frank-sinatra/fly-me-to-the-moon/fly-me-to-the-moon-preview-d6d36420ec.pdf"
+    "preview_file_key": "tabs/frank-sinatra/fly-me-to-the-moon/fly-me-to-the-moon-preview-d6d36420ec.pdf",
+    "thumbnail_file_key": "tabs/frank-sinatra/fly-me-to-the-moon/fly-me-to-the-moon-d6d36420ec_page1.jpg"
   },
   {
     "id": 48,
@@ -702,6 +748,231 @@
     "file_key": "tabs/green-day/boulevard-of-broken-dreams/boulevard-of-broken-dreams-1e02e5853a.pdf",
     "file_name": "green-day-boulevard-of-broken-dreams.pdf",
     "downloads": 0,
-    "preview_file_key": "tabs/green-day/boulevard-of-broken-dreams/boulevard-of-broken-dreams-preview-1e02e5853a.pdf"
+    "preview_file_key": "tabs/green-day/boulevard-of-broken-dreams/boulevard-of-broken-dreams-preview-1e02e5853a.pdf",
+    "thumbnail_file_key": "tabs/green-day/boulevard-of-broken-dreams/boulevard-of-broken-dreams-1e02e5853a_page1.jpg"
+  },
+  {
+    "id": 49,
+    "song_name": "Back in Black",
+    "artist": "ACDC",
+    "album": "Back in Black",
+    "genre": "METAL",
+    "style": "ELECTRIC",
+    "difficulty": "BEGINNER",
+    "description": "\"Back in Black\" by AC/DC is an iconic hard rock anthem and the title track of their 1980 album, serving as a powerful, celebratory tribute to their late singer Bon Scott, replacing morbid sadness with defiant, life-affirming lyrics like \"Forget the hearse 'cause I never die,\" anchored by one of rock's most recognizable guitar riffs and Brian Johnson's powerful debut vocals, solidifying the band's future after loss.",
+    "lyrics_included": false,
+    "file_key": "tabs/acdc/back-in-black/back-in-black-6309fa28c0.pdf",
+    "file_name": "back-in-black.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/acdc/back-in-black/back-in-black-6309fa28c0-preview.pdf",
+    "thumbnail_file_key": "tabs/acdc/back-in-black/back-in-black-6309fa28c0_page1.jpg"
+  },
+  {
+    "id": 50,
+    "song_name": "Highway to Hell",
+    "artist": "ACDC",
+    "album": "Highway to Hell",
+    "genre": "METAL",
+    "style": "ELECTRIC",
+    "difficulty": "BEGINNER",
+    "description": "\"Highway to Hell\" by AC/DC is a legendary 1979 metal anthem about the rebellious, hedonistic life on the road for a touring band, with its title inspired by the difficult, non-stop touring life and literal Australian roads like Canning Highway, reflecting themes of lust, partying, and defiance with an iconic guitar riff and Bon Scott's raspy vocals, becoming the band's breakthrough hit and Scott's last album before his death. ",
+    "lyrics_included": false,
+    "file_key": "tabs/acdc/highway-to-hell/highway-to-hell-18b277a007.pdf",
+    "file_name": "highway-to-hell.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/acdc/highway-to-hell/highway-to-hell-18b277a007-preview.pdf",
+    "thumbnail_file_key": "tabs/acdc/highway-to-hell/highway-to-hell-18b277a007_page1.jpg"
+  },
+  {
+    "id": 51,
+    "song_name": "Shape of You",
+    "artist": "Ed Sheeran",
+    "album": "÷ (Divide)",
+    "genre": "POP",
+    "style": "FINGER_PICKING",
+    "difficulty": "INTERMEDIATE",
+    "description": "\"Shape of You\" by Ed Sheeran describes a casual bar encounter that blossoms into a physical and emotional connection, set to a tropical-infused, marimba-driven pop beat, telling a story of attraction and new love that moves from drinks to dancing to intimacy, blending catchy rhythms with a modern, straightforward narrative about getting to know someone, body and soul.",
+    "lyrics_included": false,
+    "file_key": "tabs/ed-sheeran/shape-of-you/shape-of-you-20e2fe5fde.pdf",
+    "file_name": "shape-of-you.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/ed-sheeran/shape-of-you/shape-of-you-20e2fe5fde-preview.pdf",
+    "thumbnail_file_key": "tabs/ed-sheeran/shape-of-you/shape-of-you-20e2fe5fde_page1.jpg"
+  },
+  {
+    "id": 52,
+    "song_name": "Hotel California",
+    "artist": "Eagles",
+    "album": "Hotel California",
+    "genre": "ROCK",
+    "style": "FINGER_PICKING",
+    "difficulty": "INTERMEDIATE",
+    "description": "The Eagles' \"Hotel California\" is a metaphorical rock epic about the dark side of the American Dream, materialism, and hedonism, using the story of a traveler trapped in a surreal, luxurious hotel as an allegory for the band's experiences with fame, excess, and the seductive but ultimately inescapable nature of the California lifestyle in the 1970s, featuring a famous guitar solo and the iconic line, \"You can check-out any time you like, but you can never leave\"",
+    "lyrics_included": false,
+    "file_key": "tabs/eagles/hotel-california/hotel-california-7ff8224324.pdf",
+    "file_name": "hotel-california.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/eagles/hotel-california/hotel-california-7ff8224324-preview.pdf",
+    "thumbnail_file_key": "tabs/eagles/hotel-california/hotel-california-7ff8224324_page1.jpg"
+  },
+  {
+    "id": 53,
+    "song_name": "Smells Like Teen Spirit",
+    "artist": "Nirvana",
+    "album": "Nevermind",
+    "genre": "ROCK",
+    "style": "FINGER_PICKING",
+    "difficulty": "INTERMEDIATE",
+    "description": "A finger picking version of Smells Like Teen Spirit is Nirvana’s explosive breakout single and a defining anthem of the early 1990s alternative rock movement. Built around a raw, distorted guitar riff and dynamic shifts between quiet verses and loud, aggressive choruses, the song captures themes of teenage apathy, rebellion, and disillusionment. Its stripped-down energy and iconic tone helped bring underground grunge music into the mainstream.",
+    "lyrics_included": false,
+    "file_key": "tabs/nirvana/smells-like-teen-spirit/smells-like-teen-spirit-aeaa8d0cd9.pdf",
+    "file_name": "smells-like-teen-spirit.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/nirvana/smells-like-teen-spirit/smells-like-teen-spirit-aeaa8d0cd9-preview.pdf",
+    "thumbnail_file_key": "tabs/nirvana/smells-like-teen-spirit/smells-like-teen-spirit-aeaa8d0cd9_page1.jpg"
+  },
+  {
+    "id": 54,
+    "song_name": "Sweet Child O' Mine",
+    "artist": "Guns N' Roses",
+    "album": "Appetite for Destruction",
+    "genre": "ROCK",
+    "style": "ELECTRIC",
+    "difficulty": "INTERMEDIATE",
+    "description": "Sweet Child O’ Mine is one of Guns N’ Roses’ most iconic songs, instantly recognizable for its soaring, melodic opening riff and expressive lead guitar work. Blending hard rock energy with a strong sense of melody, the track balances powerful rhythm parts with expressive solos. It showcases Slash’s signature guitar tone and remains a staple for electric guitarists looking to develop control, phrasing, and confidence.",
+    "lyrics_included": false,
+    "file_key": "tabs/guns-n-roses/sweet-child-o-mine/sweet-child-o-mine-82f606e5ef.pdf",
+    "file_name": "sweet-child-o--mine.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/guns-n-roses/sweet-child-o-mine/sweet-child-o-mine-82f606e5ef-preview.pdf",
+    "thumbnail_file_key": "tabs/guns-n-roses/sweet-child-o-mine/sweet-child-o-mine-82f606e5ef_page1.jpg"
+  },
+  {
+    "id": 55,
+    "song_name": "Good Riddance (Time of Your Life)",
+    "artist": "Green Day",
+    "album": "Nimrod",
+    "genre": "ROCK",
+    "style": "FINGER_PICKING",
+    "difficulty": "INTERMEDIATE",
+    "description": "Good Riddance (Time of Your Life) is a reflective acoustic ballad that stands out in Green Day’s catalog for its stripped-back arrangement and emotional tone. Built around simple open chords and steady strumming, the song emphasizes timing and feel over technical complexity. Its nostalgic lyrics and gentle melody make it a popular choice for beginners looking to practice chord transitions and expressive playing.",
+    "lyrics_included": false,
+    "file_key": "tabs/green-day/good-riddance-time-of-your-life-/good-riddance-time-of-your-life-37dcd91bf6.pdf",
+    "file_name": "good-riddance-time-of-your-life.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/green-day/good-riddance-time-of-your-life/good-riddance-time-of-your-life-37dcd91bf6-preview.pdf",
+    "thumbnail_file_key": "tabs/green-day/good-riddance-time-of-your-life/good-riddance-time-of-your-life-37dcd91bf6_page1.jpg"
+  },
+  {
+    "id": 56,
+    "song_name": "Country Roads (Take Me Home)",
+    "artist": "John Denver",
+    "album": "Poems, Prayers & Promises",
+    "genre": "COUNTRY",
+    "style": "FINGER_PICKING",
+    "difficulty": "INTERMEDIATE",
+    "description": "Country Roads (Take Me Home) is a timeless folk-country classic known for its warm, sing-along melody and simple, approachable chord progression. Centered around steady acoustic strumming, the song is ideal for beginners learning basic open chords and rhythm consistency. Its storytelling lyrics and gentle tempo make it a favorite for campfire playing and solo acoustic performances.",
+    "lyrics_included": false,
+    "file_key": "tabs/john-denver/country-roads-take-me-home/country-roads-take-me-home-4d571d051e.pdf",
+    "file_name": "country-roads-take-me-home.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/john-denver/country-roads-take-me-home/country-roads-take-me-home-4d571d051e-preview.pdf",
+    "thumbnail_file_key": "tabs/john-denver/country-roads-take-me-home/country-roads-take-me-home-4d571d051e_page1.jpg"
+  },
+  {
+    "id": 57,
+    "song_name": "Dust In The Wind",
+    "artist": "Kansas",
+    "album": "Point of Know Return",
+    "genre": "ROCK",
+    "style": "FINGER_PICKING",
+    "difficulty": "BEGINNER",
+    "description": "Dust In The Wind is an iconic acoustic ballad built around a repeating finger picking pattern that carries the entire song. While the chord shapes are straightforward, the challenge lies in maintaining a steady, flowing picking pattern and clean transitions throughout. The song is a staple for guitarists looking to develop fingerstyle technique and control while playing a well-known classic.",
+    "lyrics_included": false,
+    "file_key": "tabs/kansas/dust-in-the-wind/dust-in-the-wind-4729e0f7c7.pdf",
+    "file_name": "dust-in-the-wind.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/kansas/dust-in-the-wind/dust-in-the-wind-4729e0f7c7-preview.pdf",
+    "thumbnail_file_key": "tabs/kansas/dust-in-the-wind/dust-in-the-wind-4729e0f7c7_page1.jpg"
+  },
+  {
+    "id": 58,
+    "song_name": "Whole Lotta Love",
+    "artist": "Led Zeppelin",
+    "album": "Led Zeppelin II",
+    "genre": "ROCK",
+    "style": "ELECTRIC",
+    "difficulty": "INTERMEDIATE",
+    "description": "Whole Lotta Love is a hard-driving rock classic built around one of the most famous guitar riffs in music history. The song features powerful blues-based phrasing, heavy distortion, and dynamic rhythmic feel. While the main riff is accessible, capturing the groove, muting, and expressive bends makes it a strong choice for intermediate electric guitarists looking to refine tone and feel.",
+    "lyrics_included": false,
+    "file_key": "tabs/led-zeppelin/whole-lotta-love/whole-lotta-love-94a4fb255e.pdf",
+    "file_name": "whole-lotta-love.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/led-zeppelin/whole-lotta-love/whole-lotta-love-94a4fb255e-preview.pdf",
+    "thumbnail_file_key": "tabs/led-zeppelin/whole-lotta-love/whole-lotta-love-94a4fb255e_page1.jpg"
+  },
+  {
+    "id": 59,
+    "song_name": "Classical Gas",
+    "artist": "Mason Williams",
+    "album": "The Mason Williams Phonograph Record",
+    "genre": "CLASSICAL",
+    "style": "FINGER_PICKING",
+    "difficulty": "BEGINNER",
+    "description": "Classical Gas is a fast-paced instrumental piece that blends classical-inspired guitar techniques with contemporary folk and pop influences. Known for its intricate fingerpicking patterns, rapid tempo, and dynamic shifts, the song demands precision, independence between fingers, and strong rhythmic control. It is a benchmark piece for advanced guitarists looking to challenge their fingerstyle technique and endurance.",
+    "lyrics_included": false,
+    "file_key": "tabs/mason-williams/classical-gas/classical-gas-5ac5f7a9f7.pdf",
+    "file_name": "classical-gas.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/mason-williams/classical-gas/classical-gas-5ac5f7a9f7-preview.pdf",
+    "thumbnail_file_key": "tabs/mason-williams/classical-gas/classical-gas-5ac5f7a9f7_page1.jpg"
+  },
+  {
+    "id": 60,
+    "song_name": "Enter Sandman",
+    "artist": "Metallica",
+    "album": "Metallica",
+    "genre": "METAL",
+    "style": "ELECTRIC",
+    "difficulty": "INTERMEDIATE",
+    "description": "Enter Sandman is one of Metallica’s most recognizable songs, driven by a heavy, palm-muted guitar riff and a steady, groove-focused rhythm. The track blends accessible riff-based playing with tight timing and control, making it a staple for aspiring metal guitarists. While the main parts are approachable, mastering the tone, muting, and rhythmic precision elevates it to an intermediate-level challenge.",
+    "lyrics_included": false,
+    "file_key": "tabs/metallica/enter-sandman/enter-sandman-6c43e54271.pdf",
+    "file_name": "enter-sandman.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/metallica/enter-sandman/enter-sandman-6c43e54271-preview.pdf",
+    "thumbnail_file_key": "tabs/metallica/enter-sandman/enter-sandman-6c43e54271_page1.jpg"
+  },
+  {
+    "id": 61,
+    "song_name": "Let Her Go",
+    "artist": "Passenger",
+    "album": "All the Little Lights",
+    "genre": "FOLK",
+    "style": "FINGER_PICKING",
+    "difficulty": "INTERMEDIATE",
+    "description": "Let Her Go is a gentle finger picking folk song built around a simple chord progression and a relaxed, steady strumming pattern. Its focus on dynamics and emotional delivery makes it ideal for beginners who want to practice clean chord changes and expressive playing. The song’s minimal arrangement allows the melody and lyrics to shine while remaining very approachable on guitar.",
+    "lyrics_included": false,
+    "file_key": "tabs/passenger/let-her-go/let-her-go-c6bf6d7798.pdf",
+    "file_name": "let-her-go.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/passenger/let-her-go/let-her-go-c6bf6d7798-preview.pdf",
+    "thumbnail_file_key": "tabs/passenger/let-her-go/let-her-go-c6bf6d7798_page1.jpg"
+  },
+  {
+    "id": 62,
+    "song_name": "Hey Jude",
+    "artist": "The Beatles",
+    "album": "Hey Jude",
+    "genre": "ROCK",
+    "style": "FINGER_PICKING",
+    "difficulty": "INTERMEDIATE",
+    "description": "Hey Jude is a timeless classic built around simple chords and a steady, expressive strumming pattern. The song emphasizes dynamics and feel, gradually building from a gentle opening to its iconic extended sing-along outro. Its approachable structure and familiar chord shapes make it an excellent choice for beginner guitarists looking to develop rhythm, timing, and musical expression.",
+    "lyrics_included": false,
+    "file_key": "tabs/the-beatles/hey-jude/hey-jude-5d5bb96ba8.pdf",
+    "file_name": "hey-jude.pdf",
+    "downloads": 0,
+    "preview_file_key": "tabs/the-beatles/hey-jude/hey-jude-5d5bb96ba8-preview.pdf",
+    "thumbnail_file_key": "tabs/the-beatles/hey-jude/hey-jude-5d5bb96ba8_page1.jpg"
   }
 ]

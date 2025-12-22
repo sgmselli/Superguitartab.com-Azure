@@ -3,6 +3,7 @@ import boto3
 from botocore.config import Config
 
 from app.core.config import settings
+from app.exceptions.s3 import S3ClientException
 from app.utils.logging import Logger, LogLevel
 
 
@@ -23,7 +24,7 @@ class S3Client:
         )
         self.bucket_name = settings.digital_ocean_bucket_name
 
-    def generate_presigned_url(self, object_name: str, expires_in: int = 3600) -> str | None:
+    def generate_presigned_url(self, object_name: str, expires_in: int = 3600) -> str:
         """
         Generate a presigned URL for temporary access to file.
         """
@@ -38,9 +39,9 @@ class S3Client:
             return url
         except Exception as e:
             Logger.log(LogLevel.ERROR, f"Error generating presigned URL for {object_name}: {e}")
-            return None
+            raise S3ClientException()
 
-    async def upload_fileobj(self, object_name, file) -> bool:
+    async def upload_fileobj(self, object_name, file) -> None:
         """
         Upload file with name object_name to s3 bucket.
         """
@@ -61,17 +62,15 @@ class S3Client:
             )
         except Exception as e:
             Logger.log(LogLevel.ERROR, str(e))
-            return False
-        return True
+            raise S3ClientException()
 
-    def delete_object(self, object_name: str) -> bool:
+    def delete_object(self, object_name: str) -> None:
         """
         Delete file with name object_name from s3 bucket.
         """
         Logger.log(LogLevel.INFO, f"Deleting {object_name}")
         try:
             self.s3.delete_object(Bucket=self.bucket_name, Key=object_name)
-            return True
         except Exception as e:
             Logger.log(LogLevel.ERROR, f"Error deleting object {object_name}: {e}")
-            return False
+            raise S3ClientException()

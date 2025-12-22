@@ -1,7 +1,8 @@
 import React from 'react'
-import { MoveRight, StarIcon } from 'lucide-react'
-import { TopSongsTable } from './TopSongsTable'
-import { Link } from 'react-router-dom'
+import { MoveRight, StarIcon, ArrowRight } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { SongCarousel } from '../../components/SongCarousel'
+import { popularSongList, fingerPickingSongList, reccomendedSongList, rockSongList } from '../../constants/songList'
 
 const Landing: React.FC = () => {
 
@@ -12,7 +13,7 @@ const Landing: React.FC = () => {
               <LandingBanner />
           </div>
           <div className="mt-8">
-              <LandingTopSongs />
+            <LandingSongs />
           </div>
           <div className="mt-30">
               <Review />
@@ -32,7 +33,7 @@ const LandingBanner: React.FC = () => {
                 className='flex-4 flex flex-col gap-6 sm:gap-12 primary-color'
             >
                 <div className='flex flex-col gap-4 sm:gap-6'>
-                    <h1 className='text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight'>superguitartab.com</h1>
+                    <h1 className='text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight'>Superguitartab.com</h1>
                     <h4 className='text-md sm:text-lg lg:text-xl font-normal'><span className='underline'>superguitartab.com</span> guarantees high quality, hand-crafted, downloadable guitar music sheets at the click of a button.</h4>
                 </div>
                 <div>
@@ -48,13 +49,44 @@ const LandingBanner: React.FC = () => {
     )
 }
 
-const LandingTopSongs: React.FC = () => {
+const LandingSongs: React.FC = () => {
+
+    const navigate = useNavigate();
+
+    const handleNavigate = (route: string) => {
+      navigate(`/${route}`)
+    }
+
     return (
-        <div className='flex flex-col'>
-            <h5 className='text-xs sm:text-sm text-gray-500 uppercase tracking-wider mb-4'>Popular tabs</h5>
-            <TopSongsTable />
-            <div className='flex justify-center mt-8'>
-                <Link to="/browse"><button className='btn btn-md sm:btn-lg rounded-lg primary-color-bg surface-color'>Browse more songs <span className='ml-1'><MoveRight size={20} /></span></button></Link>
+        <div className='flex flex-col gap-12 overflow-x-hidden'>
+            <div className='flex flex-col'>
+              <h5 className="w-fit primary-color font-medium uppercase tracking-wider mb-4">
+                Popular guitar tabs
+              </h5>
+              <SongCarousel tabs={popularSongList} />
+            </div>
+
+            <div className='flex flex-col'>
+              <h5 onClick={() => handleNavigate("category/style/finger-picking")} className="w-fit flex items-center gap-2 primary-color font-medium uppercase tracking-wider mb-4 hover:underline cursor-pointer">
+                Finger picking guitar tabs
+                <ArrowRight className="w-5 h-5" />
+              </h5>
+              <SongCarousel tabs={fingerPickingSongList} />
+            </div>
+
+            <div className='flex flex-col'>
+              <h5 onClick={() => handleNavigate("category/genre/rock")} className="w-fit flex items-center gap-2 primary-color font-medium uppercase tracking-wider mb-4 hover:underline cursor-pointer">
+                Rock guitar tabs
+                <ArrowRight className="w-5 h-5" />
+              </h5>
+              <SongCarousel tabs={rockSongList} />
+            </div>
+
+            <div className='flex flex-col'>
+              <h5 className="w-fit primary-color font-medium uppercase tracking-wider mb-4">
+                Reccomended guitar tabs
+              </h5>
+              <SongCarousel tabs={reccomendedSongList} />
             </div>
         </div>
     )
