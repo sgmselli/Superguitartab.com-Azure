@@ -43,7 +43,7 @@ export const Login: React.FC = () => {
 
         try {
             await login(buildLoginData());
-            navigate("/account")
+            navigate("/auth/callback");
         } catch (e: any) {
             const serverError = e?.response?.data?.detail || "Failed to sign in.";
             setError(serverError);

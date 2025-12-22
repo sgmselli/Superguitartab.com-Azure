@@ -6,25 +6,16 @@ import {
   mockRegisterEndpoint,
   mockUserDownloads,
 } from './fixtures/mock-routes';
-
-const testUser = {
-  id: 42,
-  email: 'testuser@example.com',
-  first_name: 'Test',
-  last_name: 'User',
-};
+import { loginUser } from './helpers/helpers';
+import { testUser } from './constants';
 
 test('User can sign in and is taken to account page', async ({ page }) => {
   await mockAuthState(page, { authenticated: false });
-  await mockLoginEndpoint(page, testUser);
   await mockUserDownloads(page, []);
 
   await page.goto('/login');
 
-  await page.getByRole('textbox', { name: /Email address input/i }).fill(testUser.email);
-  await page.getByRole('textbox', { name: /Password input/i }).fill('password123!');
-
-  await page.getByRole('button', { name: /Sign in button/i }).click();
+  await loginUser(page, testUser)
 
   await page.waitForURL('**/account');
   await expect(page.getByRole('heading', { level: 1, name: /Welcome, Test/i })).toBeVisible();

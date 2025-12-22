@@ -17,6 +17,7 @@ import { AuthProvider } from "./contexts/auth";
 import AuthorizedRoute from "./components/ProtectedRoutes/AuthorizedRoute";
 import UnauthorisedRoute from "./components/ProtectedRoutes/UnauthorizedRoute";
 import { Logout } from "./pages/Auth/Logout";
+import { AuthCallback } from "./pages/Auth/AuthCallback";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/privacy-policy" element={<Page showFaq={false} children={<PrivacyPolicy />} />} />
             <Route path="/terms-and-conditions" element={<Page showFaq={false} children={<TermsAndConditions />} />} />
             <Route path="/*" element={<Page children={<NotFound />} />} />
+            <Route path="/auth/callback" element={<Page showFaq={false} children={<AuthCallback />} />} />
 
             {/* Must be authenticated routes */}
             <Route element={<AuthorizedRoute />}>

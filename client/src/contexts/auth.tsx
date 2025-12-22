@@ -48,11 +48,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const isAuthenticated = () => !!user && !loadingUser;
 
     return (
-        <AuthContext.Provider value={{ user, loadingUser, login, logout, isAuthenticated  }}>
+        <AuthContext.Provider value={{ user, loadingUser, login, logout, isAuthenticated }}>
             {children}
         </AuthContext.Provider>
     );
-
 }
 
 export const useAuth = () => useContext(AuthContext)!;

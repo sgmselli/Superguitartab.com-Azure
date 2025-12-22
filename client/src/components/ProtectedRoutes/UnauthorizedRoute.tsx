@@ -10,7 +10,7 @@ export default function UnauthorisedRoute() {
   }
 
   if (user) {
-    return <Navigate to="/account" replace />;
+    return <Navigate to="/auth/callback" replace />;
   }
 
   return <Outlet />;
