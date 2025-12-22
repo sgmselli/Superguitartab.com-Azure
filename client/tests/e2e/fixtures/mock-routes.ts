@@ -1,4 +1,5 @@
 import { Page } from '@playwright/test';
+import fs from "fs";
 
 import type { TabResponse } from "../../../src/types/tab";
 import type { UserResponse } from "../../../src/types/user";
@@ -102,4 +103,14 @@ export async function mockUserDownloads(page: Page, tabs: any[] = []) {
       body: JSON.stringify(tabs),
     });
   });
+}
+
+export async function mockThumbnailJPGFetch(page: Page) {
+  await page.route("**/*.jpg", route =>
+    route.fulfill({
+      status: 200,
+      contentType: "image/jpeg",
+      body: fs.readFileSync("tests/e2e/assets/placeholder.jpg"),
+    })
+  );
 }

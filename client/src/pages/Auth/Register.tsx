@@ -51,7 +51,7 @@ export const Register: React.FC = () => {
         try {
             await registerUser(buildUserData());
             await login({email, password});
-            navigate("/account")
+            navigate("/auth/callback");
         } catch (err: any) {
             if (err?.response?.data?.detail) {
                 const detail = err.response.data.detail;

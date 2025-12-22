@@ -72,6 +72,10 @@ const Song: React.FC = () => {
 
     const handleDownload = async () => {
         if (!isAuthenticated()) {
+            sessionStorage.setItem(
+                "returnTo",
+                location.pathname + location.search
+            );
             setShowAuthModal(true);
             return;
         }
@@ -80,7 +84,6 @@ const Song: React.FC = () => {
             const data = await downloadTab(id);
             const downloadable_file_url = data.file_url
             if (!downloadable_file_url) {
-                //Throw error
                 return;
             }
 

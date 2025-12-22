@@ -62,7 +62,7 @@ async def auth_google_callback(
         refresh_token = create_refresh_token({"sub": str(user.id)})
 
         redirect = RedirectResponse(
-            url=f"{settings.frontend_url}/account",
+            url=f"{settings.frontend_url}/auth/callback",
             status_code=HTTP_302_FOUND
         )
 

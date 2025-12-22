@@ -37,3 +37,4 @@
           SESSION_SECRET_KEY={{ session_secret_key }}
           GOOGLE_CLIENT_SECRET={{ google_client_secret }}
           GOOGLE_CLIENT_ID={{ google_client_id }}
+          CDN_BUCKET_BASE_URL={{ cdn_bucket_base_url }}
