@@ -62,7 +62,7 @@ const Account: React.FC = () => {
                         </div>
                     ) :
                     tabs.length < 1 ?
-                        <p className="text-color">You have no downloaded songs. You can browse our selection of music sheets to download <Link to="/browse" className='underline text-blue-500'>here</Link>.</p>
+                        <p className="text-color">You have no downloaded songs. You can browse our selection of music sheets to download<Link to="/browse" className='underline text-blue-500'>here</Link>.</p>
                     :
                         <SongTable songs={tabs} />
                 }
