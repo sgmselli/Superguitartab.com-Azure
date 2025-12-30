@@ -2,7 +2,7 @@ services:
 
   proxy:
     container_name: proxy
-    image: superguitartabacr.azurecr.io/proxy:latest
+    image: superguitartab.azurecr.io/proxy:latest
     volumes:
       - ./certbot/www/:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/letsencrypt/:ro
@@ -25,7 +25,7 @@ services:
 
   client:
     container_name: client
-    image: superguitartabacr.azurecr.io/client:latest
+    image: superguitartab.azurecr.io/client:latest
     expose:
       - "3000"
     networks:
@@ -33,7 +33,7 @@ services:
 
   tabs-api:
     container_name: tabs-api
-    image: superguitartabacr.azurecr.io/tabs-api:latest
+    image: superguitartab.azurecr.io/tabs-api:latest
     env_file:
       - .env.tabs-api
     expose:
@@ -56,7 +56,7 @@ services:
       - backend
 
   worker:
-    image: superguitartabacr.azurecr.io/worker:latest
+    image: superguitartab.azurecr.io/tabs-api:latest
     env_file:
       - .env.tabs-api
     command: celery -A app.celery.task_queue.celery_task_queue worker --loglevel=info
