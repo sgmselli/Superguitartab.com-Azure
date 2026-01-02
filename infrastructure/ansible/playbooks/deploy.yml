@@ -1,0 +1,40 @@
+---
+- name: Pull images from ACR and run docker compose (Azure VM)
+  hosts: azure_vm
+  become: yes
+
+  vars:
+    app_dir: /home/mattsellings/app
+    acr_name: superguitartab
+
+  tasks:
+    - name: Ensure app directory exists
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        owner: mattsellings
+        group: mattsellings
+        mode: "0755"
+
+    - name: Login to Azure using Managed Identity
+      command: az login --identity
+      register: az_login_result
+      changed_when: false
+
+    - name: Login to Azure Container Registry using Managed Identity
+      command: az acr login --name "{{ acr_name }}"
+      changed_when: false
+
+    - name: Copy docker-compose file
+      copy:
+        src: "{{ playbook_dir }}/../../../compose/docker-compose.production.yml"
+        dest: "{{ app_dir }}/docker-compose.yml"
+        owner: mattsellings
+        group: mattsellings
+        mode: "0644"
+
+    - name: Pull and start containers
+      community.docker.docker_compose_v2:
+        project_src: "{{ app_dir }}"
+        pull: always
+        state: present
