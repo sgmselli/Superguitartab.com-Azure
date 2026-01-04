@@ -3,7 +3,7 @@ services:
   proxy:
     container_name: proxy
     build:
-      context: ../proxy/development
+      context: ../../proxy/maintenance
     ports:
       - "80:80"
     depends_on:
@@ -13,14 +13,14 @@ services:
   client:
     container_name: client
     build:
-      context: ../client
+      context: ../../client
     ports:
       - "3000:3000"
 
   tabs-api:
     container_name: tabs-api
     build:
-      context: ../tabs-api
+      context: ../../tabs-api
     ports:
       - "8000:8000"
     depends_on:
@@ -43,7 +43,7 @@ services:
 
   worker:
     build:
-      context: ../tabs-api
+      context: ../../tabs-api
     command: celery -A app.celery.task_queue.celery_task_queue worker --loglevel=info
     depends_on:
       - redis

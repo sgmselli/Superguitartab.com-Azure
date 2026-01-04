@@ -1,13 +1,19 @@
 ---
-- name: Create environment variable files for Azure VM
-  hosts: azure_vm
+- name: Pull images from ACR and deploy app in Azure VM
+  hosts: app_vm
   become: yes
 
   vars:
     app_dir: /home/mattsellings/app
+    acr_name: superguitartab
 
   tasks:
-    - name: Ensure project directory exists
+    - name: Ensure Docker is running
+      systemd:
+        name: docker
+        state: started
+        
+    - name: Ensure app directory exists
       file:
         path: "{{ app_dir }}"
         state: directory
@@ -15,17 +21,14 @@
         group: mattsellings
         mode: "0755"
 
-    - name: Create .env.db file for database credentials
-      copy:
-        dest: "{{ app_dir }}/.env.db"
-        owner: mattsellings
-        group: mattsellings
-        mode: "0600"
-        content: |
-          POSTGRES_DB={{ database_name }}
-          POSTGRES_USER={{ database_user }}
-          POSTGRES_PASSWORD={{ database_password }}
-          POSTGRES_HOST={{ database_host }}
+    - name: Login to Azure using Managed Identity
+      command: az login --identity
+      register: az_login_result
+      changed_when: false
+
+    - name: Login to Azure Container Registry using Managed Identity
+      command: az acr login --name "{{ acr_name }}"
+      changed_when: false
 
     - name: Create .env.tabs-api file for tabs-api environment variables
       copy:
@@ -60,3 +63,17 @@
 
           BREVO_API_KEY={{ brevo_api_key }}
           FROM_EMAIL={{ from_email }}
+
+    - name: Copy docker-compose file
+      copy:
+        src: "{{ playbook_dir }}/../../../compose/production/docker-compose.app.yml"
+        dest: "{{ app_dir }}/docker-compose.yml"
+        owner: mattsellings
+        group: mattsellings
+        mode: "0644"
+
+    - name: Pull and start containers
+      community.docker.docker_compose_v2:
+        project_src: "{{ app_dir }}"
+        pull: always
+        state: present
