@@ -30,10 +30,22 @@ variable "subnet_app_name" {
   default     = "subnet-superguitartab-prod-main-westeurope"
 }
 
+variable "subnet_db_name" {
+  description = "Subnet for the virtual machine containing the relational database"
+  type        = string
+  default     = "subnet-superguitartab-prod-db-westeurope"
+}
+
 variable "nsg_app_name" {
   description = "Network Security Group for the main app's subnet"
   type        = string
   default     = "nsg-superguitartab-prod-main-westeurope"
+}
+
+variable "nsg_db_name" {
+  description = "Network Security Group for the relational database's subnet"
+  type        = string
+  default     = "nsg-superguitartab-prod-db-westeurope"
 }
 
 variable "vm_app_name" {
@@ -42,8 +54,20 @@ variable "vm_app_name" {
   default     = "vm-superguitartab-prod-main-westeurope"
 }
 
+variable "vm_db_name" {
+  description = "Virtual machine containing the containerised relational database"
+  type        = string
+  default     = "vm-superguitartab-prod-db-westeurope"
+}
+
 variable "vm_app_size" {
   description = "Size of our app's virtual machine"
+  type        = string
+  default     = "Standard_B2ts_v2"
+}
+
+variable "vm_db_size" {
+  description = "Size of our relational database's virtual machine"
   type        = string
   default     = "Standard_B2ts_v2"
 }

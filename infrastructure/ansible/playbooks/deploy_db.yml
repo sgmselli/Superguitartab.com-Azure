@@ -1,0 +1,47 @@
+---
+- name: Deploy PostgreSQL container in Azure VM
+  hosts: db_vm
+  become: yes
+
+  vars:
+    db_dir: /home/mattsellings/db
+    acr_name: superguitartab
+
+  tasks:
+    - name: Ensure Docker is running
+      systemd:
+        name: docker
+        state: started
+
+    - name: Ensure db directory exists
+      file:
+        path: "{{ db_dir }}"
+        state: directory
+        owner: mattsellings
+        group: mattsellings
+        mode: "0755"
+    
+    - name: Create .env.db file for database credentials
+      copy:
+        dest: "{{ db_dir }}/.env.db"
+        owner: mattsellings
+        group: mattsellings
+        mode: "0600"
+        content: |
+          POSTGRES_DB={{ database_name }}
+          POSTGRES_USER={{ database_user }}
+          POSTGRES_PASSWORD={{ database_password }}
+
+    - name: Copy docker-compose file
+      copy:
+        src: "{{ playbook_dir }}/../../../compose/production/docker-compose.db.yml"
+        dest: "{{ db_dir }}/docker-compose.yml"
+        owner: mattsellings
+        group: mattsellings
+        mode: "0644"
+
+    - name: Pull and start containers
+      community.docker.docker_compose_v2:
+        project_src: "{{ db_dir }}"
+        pull: always
+        state: present
