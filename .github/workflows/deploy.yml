@@ -21,7 +21,10 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_LOGIN_KEY }}
  
-      - name: Wait for SonarCloud Quality Gate
-        uses: SonarSource/sonarcloud-quality-gate-action@master
+      - name: SonarQube Quality Gate check
+        id: sonarqube-quality-gate-check
+        uses: sonarsource/sonarqube-quality-gate-action@master
+        timeout-minutes: 5
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_LOGIN_KEY }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
