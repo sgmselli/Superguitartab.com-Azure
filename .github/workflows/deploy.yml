@@ -132,6 +132,7 @@ jobs:
       - name: Run Ansible playbook
         env:
           ACR_LOGIN_SERVER: ${{ secrets.ACR_LOGIN_SERVER }}
+          ANSIBLE_HOST_KEY_CHECKING: "False"
         run: |
           ansible-playbook \
             -i ./infrastructure/ansible/hosts.ini \
