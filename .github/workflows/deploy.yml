@@ -21,5 +21,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_LOGIN_KEY }}
           SONAR_HOST_URL: https://sonarcloud.io
-
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_TOKEN }}
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORG_KEY }}
  
