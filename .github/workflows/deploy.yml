@@ -83,30 +83,14 @@ jobs:
     needs: tests
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
         with:
-          python-version: 3.11
-
-      - name: Install backend dependencies
-        run: |
-          pip install -r tabs-api/requirements.txt
-          pip install sonar-scanner
-
-      - name: Run backend tests and generate coverage
-        run: |
-          pytest --cov=tabs-api --cov-report=xml
-
-      - name: Run SonarQube Analysis for backend
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=${{ secrets.SONARY_PROJECT_TOKEN }} \
-            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }} \
-            -Dsonar.sources=./tabs-api \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=${{ secrets.SONAR_LOGIN_KEY }} \
-            -Dsonar.python.coverage.reportPaths=coverage.xml
+          fetch-depth: 0
+        
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@7.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_LOGIN_KEY }}
+          SONAR_HOST_URL: https://sonarcloud.io
 
   build:
     name: Build
