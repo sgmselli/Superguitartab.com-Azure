@@ -99,15 +99,15 @@ jobs:
 
       - name: Build proxy Docker image and push to container registry
         run: |
-          docker buildx build --platform linux/amd64 -t ${{ secrets.ACR_LOGIN_SERVER }}/guitar-tabs-registry/app:proxy-latest --push ./proxy/production
+          docker buildx build --platform linux/amd64 -t ${{ secrets.ACR_LOGIN_SERVER }}/proxy:latest --push ./proxy/production
 
       - name: Build client Docker image and push to container registry
         run: |
-          docker buildx build --platform linux/amd64 -t ${{ secrets.ACR_LOGIN_SERVER }}/guitar-tabs-registry/app:client-latest --push ./client
+          docker buildx build --platform linux/amd64 -t ${{ secrets.ACR_LOGIN_SERVER }}/client:latest --push ./client
 
       - name: Build tabs api Docker image and push to container registry
         run: |
-          docker buildx build --platform linux/amd64 -t ${{ secrets.ACR_LOGIN_SERVER }}/guitar-tabs-registry/app:tabs-api-latest --push ./tabs-api
+          docker buildx build --platform linux/amd64 -t ${{ secrets.ACR_LOGIN_SERVER }}/tabs-api:latest --push ./tabs-api
 
   deploy:
     name: Deploy
