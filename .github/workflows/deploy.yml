@@ -53,6 +53,11 @@ jobs:
           docker compose -f ./compose/development/docker-compose.yml exec tabs-api \
             python -m app.db.seed.seed_tab_data
 
+      - name: Run Python linting (Pylint)
+        run: |
+          docker compose -f ./compose/development/docker-compose.yml exec tabs-api \
+            pylint app --rcfile=.pylintrc --fail-under=8
+
       - name: Run API unit tests
         run: | 
           docker compose -f ./compose/development/docker-compose.yml exec tabs-api \
