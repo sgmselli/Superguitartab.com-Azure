@@ -32,7 +32,7 @@ jobs:
         env:
           APP_ENV: TEST
         run: |
-          docker compose -f ./compose/docker-compose.yml up --build -d
+          docker compose -f ./compose/development/docker-compose.yml up --build -d
 
       - name: Wait for API service
         run: |
@@ -40,22 +40,22 @@ jobs:
         
       - name: Wait for Postgres to be ready
         run: |
-          docker compose -f ./compose/docker-compose.yml exec db \
+          docker compose -f ./compose/development/docker-compose.yml exec db \
             bash -c "until pg_isready -U postgres; do echo 'Waiting for DB...'; sleep 1; done"
 
       - name: Migrate database
         run: |
-          docker compose -f ./compose/docker-compose.yml exec tabs-api \
+          docker compose -f ./compose/development/docker-compose.yml exec tabs-api \
             alembic -c app/db/migrations/alembic.ini upgrade head
 
       - name: Seed database
         run: |
-          docker compose -f ./compose/docker-compose.yml exec tabs-api \
+          docker compose -f ./compose/development/docker-compose.yml exec tabs-api \
             python -m app.db.seed.seed_tab_data
 
       - name: Run API unit tests
         run: | 
-          docker compose -f ./compose/docker-compose.yml exec tabs-api \
+          docker compose -f ./compose/development/docker-compose.yml exec tabs-api \
             pytest
 
       - name: Install Playwright
@@ -70,7 +70,7 @@ jobs:
           npx playwright test --workers=1
 
       - name: Tear down test environment
-        run: docker compose -f ./compose/docker-compose.yml down
+        run: docker compose -f ./compose/development/docker-compose.yml down
 
   build:
     name: Build
