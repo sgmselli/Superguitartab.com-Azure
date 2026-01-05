@@ -3,7 +3,7 @@ services:
   proxy:
     container_name: proxy
     build:
-      context: ../../proxy/maintenance
+      context: ../../proxy/development
     ports:
       - "80:80"
     depends_on:

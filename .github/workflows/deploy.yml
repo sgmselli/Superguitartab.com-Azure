@@ -135,4 +135,4 @@ jobs:
         run: |
           ansible-playbook \
             -i ./infrastructure/ansible/hosts.ini \
-            ./infrastructure/ansible/playbooks/deplo_app.yml
+            ./infrastructure/ansible/playbooks/deploy_app.yml
