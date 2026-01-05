@@ -77,6 +77,37 @@ jobs:
       - name: Tear down test environment
         run: docker compose -f ./compose/development/docker-compose.yml down
 
+  sonar:
+    name: SonarQube Scan
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install backend dependencies
+        run: |
+          pip install -r tabs-api/requirements.txt
+          pip install sonar-scanner
+
+      - name: Run backend tests and generate coverage
+        run: |
+          pytest --cov=tabs-api --cov-report=xml
+
+      - name: Run SonarQube Analysis for backend
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=${{ secrets.SONARY_PROJECT_TOKEN }} \
+            -Dsonar.organization=${{ secrets.SONAR_ORG_KEY }} \
+            -Dsonar.sources=./tabs-api \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_LOGIN_KEY }} \
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -117,7 +148,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    needs: [build, tests]
+    needs: [build, tests, sonar]
     steps:
       - uses: actions/checkout@v4
 
